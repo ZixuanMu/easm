@@ -10,6 +10,7 @@ export default {
   'settings.navbar.theme.toDark': 'Click to use dark mode',
   'settings.navbar.screen.toFull': 'Click to switch to full screen mode',
   'settings.navbar.screen.toExit': 'Click to exit the full screen mode',
+  'settings.navbar.title': '安全意识培训平台',
   'settings.navbar.alerts': 'alerts',
   'settings.menu': 'Menu',
   'settings.topMenu': 'Top Menu',

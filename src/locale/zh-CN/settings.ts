@@ -10,7 +10,9 @@ export default {
   'settings.navbar.theme.toDark': '点击切换为暗黑模式',
   'settings.navbar.screen.toFull': '点击切换全屏模式',
   'settings.navbar.screen.toExit': '点击退出全屏模式',
+  'settings.navbar.title': '安全意识培训平台',
   'settings.navbar.alerts': '消息通知',
+
   'settings.menu': '菜单栏',
   'settings.topMenu': '顶部菜单栏',
   'settings.tabBar': '多页签',
