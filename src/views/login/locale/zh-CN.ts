@@ -1,5 +1,5 @@
 export default {
-  'login.form.title': '登录 Arco Design Pro',
+  'login.form.title': '系统登陆',
   'login.form.userName.errMsg': '用户名不能为空',
   'login.form.password.errMsg': '密码不能为空',
   'login.form.login.errMsg': '登录出错，轻刷新重试',
@@ -9,7 +9,6 @@ export default {
   'login.form.rememberPassword': '记住密码',
   'login.form.forgetPassword': '忘记密码',
   'login.form.login': '登录',
-  'login.form.register': '注册账号',
   'login.banner.slogan1': '开箱即用的高质量模板',
   'login.banner.subSlogan1': '丰富的的页面模板，覆盖大多数典型业务场景',
   'login.banner.slogan2': '内置了常见问题的解决方案',
