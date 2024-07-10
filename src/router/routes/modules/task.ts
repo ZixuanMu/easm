@@ -13,11 +13,11 @@ const Task: AppRouteRecordRaw = {
   },
   children: [
     {
-      path: 'workplace',
-      name: 'Workplace',
-      component: () => import('@/views/dashboard/workplace/index.vue'),
+      path: 'taskmanager',
+      name: 'Taskmanager',
+      component: () => import('@/views/task/taskmanager/index.vue'),
       meta: {
-        locale: 'menu.dashboard.workplace',
+        locale: 'menu.task.taskmanager',
         requiresAuth: true,
         roles: ['*'],
       },

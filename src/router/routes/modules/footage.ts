@@ -1,7 +1,7 @@
 import { DEFAULT_LAYOUT } from '../base';
 import { AppRouteRecordRaw } from '../types';
 
-const PROFILE: AppRouteRecordRaw = {
+const FOOTAGE: AppRouteRecordRaw = {
   path: '/profile',
   name: 'profile',
   component: DEFAULT_LAYOUT,
@@ -25,4 +25,4 @@ const PROFILE: AppRouteRecordRaw = {
   ],
 };
 
-export default PROFILE;
+export default FOOTAGE;

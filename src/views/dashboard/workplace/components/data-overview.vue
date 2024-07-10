@@ -6,7 +6,7 @@
           quota="user"
           :card-style="{
             background: isDark
-              ? '#1D2129':'#ffffff' ,
+              ? '#232324':'#ffffff' ,
           }"
         />
       </a-grid-item>
@@ -16,7 +16,7 @@
           quota="footage"
           :card-style="{
             background: isDark
-              ? '#1D2129':'#ffffff' ,
+              ? '#232324':'#ffffff' ,
           }"
         />
       </a-grid-item>
@@ -26,7 +26,7 @@
           quota="percent"
           :card-style="{
             background: isDark
-              ? '#1D2129':'#ffffff' ,
+              ? '#232324':'#ffffff' ,
           }"
         />
       </a-grid-item>
@@ -36,7 +36,7 @@
           quota="training"
           :card-style="{
             background: isDark
-              ? '#1D2129':'#ffffff' ,
+              ? '#232324':'#ffffff' ,
           }"
         />
       </a-grid-item>

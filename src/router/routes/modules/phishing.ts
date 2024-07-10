@@ -1,7 +1,7 @@
 import { DEFAULT_LAYOUT } from '../base';
 import { AppRouteRecordRaw } from '../types';
 
-const RESULT: AppRouteRecordRaw = {
+const PHISHING: AppRouteRecordRaw = {
   path: '/result',
   name: 'result',
   component: DEFAULT_LAYOUT,
@@ -9,7 +9,7 @@ const RESULT: AppRouteRecordRaw = {
     locale: 'menu.phishing',
     icon: 'icon-email',
     requiresAuth: true,
-    order: 6,
+    order: 7,
   },
   children: [
     {
@@ -35,4 +35,4 @@ const RESULT: AppRouteRecordRaw = {
   ],
 };
 
-export default RESULT;
+export default PHISHING;

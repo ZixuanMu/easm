@@ -2,7 +2,7 @@ import localeMessageBox from '@/components/message-box/locale/zh-CN';
 import localeLogin from '@/views/login/locale/zh-CN';
 
 import localeWorkplace from '@/views/dashboard/workplace/locale/zh-CN';
-
+import localeTaskmanager from '@/views/task/taskmanager/locale/zh-CN'
 
 import localeSearchTable from '@/views/list/search-table/locale/zh-CN';
 import localeCardList from '@/views/list/card/locale/zh-CN';
@@ -50,6 +50,7 @@ export default {
   ...localeSearchTable,
   ...localeCardList,
   ...localeTraining,
+  ...localeTaskmanager,
   ...localeStepForm,
   ...localeGroupForm,
   ...localeBasicProfile,

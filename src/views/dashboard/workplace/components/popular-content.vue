@@ -34,8 +34,8 @@
           :scroll="{ x: '100%', y: '264px' }"
         >
           <template #columns>
-            <a-table-column title="排名" data-index="key"></a-table-column>
-            <a-table-column title="内容标题" data-index="title">
+            <a-table-column title="序号" data-index="key"></a-table-column>
+            <a-table-column title="培训名称" data-index="title">
               <template #cell="{ record }">
                 <a-typography-paragraph
                   :ellipsis="{
@@ -46,10 +46,10 @@
                 </a-typography-paragraph>
               </template>
             </a-table-column>
-            <a-table-column title="点击量" data-index="clickNumber">
+            <a-table-column title="培训内容" data-index="clickNumber">
             </a-table-column>
             <a-table-column
-              title="日涨幅"
+              title="完成度"
               data-index="increases"
               :sortable="{
                 sortDirections: ['ascend', 'descend'],

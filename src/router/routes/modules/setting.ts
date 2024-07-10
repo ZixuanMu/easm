@@ -1,7 +1,7 @@
 import { DEFAULT_LAYOUT } from '../base';
 import { AppRouteRecordRaw } from '../types';
 
-const Task: AppRouteRecordRaw = {
+const SETTING: AppRouteRecordRaw = {
   path: '/task',
   name: 'task',
   component: DEFAULT_LAYOUT,
@@ -13,8 +13,8 @@ const Task: AppRouteRecordRaw = {
   },
   children: [
     {
-      path: 'workplace',
-      name: 'Workplace',
+      path: 'da',
+      name: 'das',
       component: () => import('@/views/dashboard/workplace/index.vue'),
       meta: {
         locale: 'menu.dashboard.workplace',
@@ -25,4 +25,4 @@ const Task: AppRouteRecordRaw = {
   ],
 };
 
-export default Task;
+export default SETTING;

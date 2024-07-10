@@ -12,7 +12,7 @@
           />
         </a-avatar>
         <a-statistic
-          :title="$t('workplace.onlineContent')"
+          :title="$t('workplace.recenttraining')"
           :value="373.5"
           :precision="1"
           :value-from="0"

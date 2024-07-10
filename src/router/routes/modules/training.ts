@@ -1,7 +1,7 @@
 import { DEFAULT_LAYOUT } from '../base';
 import { AppRouteRecordRaw } from '../types';
 
-const VISUALIZATION: AppRouteRecordRaw = {
+const TRAINING: AppRouteRecordRaw = {
   path: '/training',
   name: 'training',
   component: DEFAULT_LAYOUT,
@@ -36,4 +36,4 @@ const VISUALIZATION: AppRouteRecordRaw = {
   ],
 };
 
-export default VISUALIZATION;
+export default TRAINING;
