@@ -1,15 +1,7 @@
 <template>
     <div class="login-form-wrapper">
-      <div class="login-form-title">{{ $t('login.form.title') }}</div>
-      <div class="login-form-error-msg">{{ errorMessage }}</div>
-      <a-tabs default-active-key="1">
-      <a-tab-pane key="1" title="Tab 1">
-        Content of Tab Panel 1
-      </a-tab-pane>
-      <a-tab-pane key="2" title="Tab 2">
-        Content of Tab Panel 2
-      </a-tab-pane>
-      </a-tabs>
+    
+  
   
       <a-form
         ref="loginForm"
@@ -49,6 +41,24 @@
             </template>
           </a-input-password>
         </a-form-item>
+
+        <!-- <a-form-item
+          field="code"
+          :rules="[{ required: true, message: $t('login.form.password.errMsg') }]"
+          :validate-trigger="['change', 'blur']"
+          hide-label
+        >
+          <a-input-password
+            v-model="userInfo.password"
+            :placeholder="$t('login.form.code.placeholder')"
+            allow-clear
+          >
+            <template #prefix>
+              <icon-lock />
+            </template>
+          </a-input-password>
+        </a-form-item> -->
+
         <a-space :size="16" direction="vertical">
           <div class="login-form-password-actions">
             <a-checkbox
