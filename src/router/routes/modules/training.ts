@@ -2,22 +2,22 @@ import { DEFAULT_LAYOUT } from '../base';
 import { AppRouteRecordRaw } from '../types';
 
 const VISUALIZATION: AppRouteRecordRaw = {
-  path: '/visualization',
-  name: 'visualization',
+  path: '/training',
+  name: 'training',
   component: DEFAULT_LAYOUT,
   meta: {
-    locale: 'menu.visualization',
+    locale: 'menu.training',
     requiresAuth: true,
     icon: 'icon-apps',
     order: 1,
   },
   children: [
     {
-      path: 'data-analysis',
-      name: 'DataAnalysis',
-      component: () => import('@/views/visualization/data-analysis/index.vue'),
+      path: 'traningmanager',
+      name: 'traningmanager',
+      component: () => import('@/views/training/trainingmanager/index.vue'),
       meta: {
-        locale: 'menu.visualization.dataAnalysis',
+        locale: 'menu.training.trainingmanager',
         requiresAuth: true,
         roles: ['admin'],
       },

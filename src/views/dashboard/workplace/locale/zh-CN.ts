@@ -34,4 +34,8 @@ export default {
   'workplace.popularContent.video': '视频',
   'workplace.categoriesPercent': '内容类型占比',
   'workplace.pecs': '个',
+  'workplace.dataoverview.numofuser': '用户总数',
+  'workplace.dataoverview.numoffootage': '素材总数',
+  'workplace.dataoverview.numoftraining': '培训个数',
+  'workplace.dataoverview.percentageoftraining': '培训完成比例',
 };

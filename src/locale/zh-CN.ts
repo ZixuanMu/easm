@@ -7,6 +7,7 @@ import localeMonitor from '@/views/dashboard/monitor/locale/zh-CN';
 
 import localeSearchTable from '@/views/list/search-table/locale/zh-CN';
 import localeCardList from '@/views/list/card/locale/zh-CN';
+import localeTraining from '@/views/training/trainingmanager/locale/zh-CN'
 
 import localeStepForm from '@/views/form/step/locale/zh-CN';
 import localeGroupForm from '@/views/form/group/locale/zh-CN';
@@ -33,7 +34,7 @@ export default {
   'menu.server.dashboard': '仪表盘-服务端',
   'menu.server.workplace': '工作台-服务端',
   'menu.server.monitor': '实时监控-服务端',
-  'menu.list': '列表页',
+  'menu.training': '培训管理',
   'menu.result': '结果页',
   'menu.exception': '异常页',
   'menu.form': '表单页',
@@ -52,6 +53,7 @@ export default {
   ...localeMonitor,
   ...localeSearchTable,
   ...localeCardList,
+  ...localeTraining,
   ...localeStepForm,
   ...localeGroupForm,
   ...localeBasicProfile,
@@ -64,5 +66,6 @@ export default {
   ...locale500,
   ...localeUserInfo,
   ...localeUserSetting,
+  
   /** simple end */
 };

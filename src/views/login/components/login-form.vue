@@ -2,7 +2,7 @@
   <div class="login-form-wrapper">
     <div class="login-form-title">{{ $t('login.form.title') }}</div>
     <div class="login-form-tabs">
-      <a-tabs type="text" default-active-key="1">
+      <a-tabs type="text" default-active-key="1" size="mini">
         <a-tab-pane class="login-form-tab-pane" key="1" title="用户名登录">
           <username-login/>
         </a-tab-pane>
@@ -37,7 +37,7 @@
     }
 
     &-tabs {
-      width: 250px; // 设置为100%，使其适应容器
+      width: 100%; // 设置为100%，使其适应容器
       display: flex;
       justify-content: center; // 水平居中
       align-items: center; // 垂直居中

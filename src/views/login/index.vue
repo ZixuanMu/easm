@@ -26,9 +26,9 @@
       align-items: center;
       position: absolute;
       top: 50%;
-      left: 75%;
+      left: 71%;
       transform: translate(-50%, -50%);
-      width: 300px;
+      width: 305px;
       padding: 50px;
       background: white;
       box-sizing: border-box;

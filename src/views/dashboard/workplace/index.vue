@@ -4,10 +4,20 @@
       <Banner />
       <a-grid :cols="24" :row-gap="16">
         <a-grid-item :span="24">
-      <div class="panel">
-        <DataPanel />
+          <DataOverview />
+          <a-divider/>
+        </a-grid-item>
+       
+        <a-grid-item class="left-panel"  :span="12">
+          <div class="panel">
+          <ContentChart />
+        </div>
+        </a-grid-item>
+        <a-grid-item class="right-panel"  :span="12">
+          <div class="panel">
         <ContentChart />
-      </div>
+        </div>
+     
         </a-grid-item>
     <a-grid-item class="panel" :span="24">
       <div class="panel">
@@ -27,7 +37,6 @@
           <QuickOperation />
           <a-divider class="half-divider" />
           <Docs />
-          
         </a-grid-item>
         <a-grid-item class="panel" :span="24">
           
@@ -40,14 +49,13 @@
 
 <script lang="ts" setup>
   import Banner from './components/banner.vue';
-  import DataPanel from './components/data-panel.vue';
   import ContentChart from './components/content-chart.vue';
   import PopularContent from './components/popular-content.vue';
   import QuickOperation from './components/quick-operation.vue';
   import Announcement from './components/announcement.vue';
   import ContentTypeDistribution from './components/content-type-distribution.vue';
   import Docs from './components/docs.vue';
-
+  import DataOverview from './components/data-overview.vue'
 </script>
 
 <script lang="ts">
@@ -69,8 +77,14 @@
   }
 
   .right-side {
-    width: 280px;
+    width: 300px;
     margin-left: 16px;
+  }
+  .left-panel{
+    margin-right: 8px;
+  }
+  .right-panel{
+    margin-left:8px;
   }
 
   .panel {
