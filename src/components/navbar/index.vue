@@ -132,20 +132,6 @@
         </a-tooltip>
       </li>
       <li>
-        <a-tooltip :content="$t('settings.title')">
-          <a-button
-            class="nav-btn"
-            type="outline"
-            :shape="'circle'"
-            @click="setVisible"
-          >
-            <template #icon>
-              <icon-settings />
-            </template>
-          </a-button>
-        </a-tooltip>
-      </li>
-      <li>
         <a-dropdown trigger="click">
           <a-avatar
             :size="32"
@@ -232,9 +218,7 @@
   const handleToggleTheme = () => {
     toggleTheme();
   };
-  const setVisible = () => {
-    appStore.updateSettings({ globalSettings: true });
-  };
+
   const refBtn = ref();
   const triggerBtn = ref();
   const setPopoverVisible = () => {

@@ -18,7 +18,6 @@
         </a-typography-paragraph>
       </a-col>
     </a-row>
-    <a-divider class="split-line" style="margin: 0" />
   </a-card>
 </template>
 

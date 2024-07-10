@@ -6,10 +6,10 @@ const LIST: AppRouteRecordRaw = {
   name: 'list',
   component: DEFAULT_LAYOUT,
   meta: {
-    locale: 'menu.list',
+    locale: 'menu.reporter',
     requiresAuth: true,
-    icon: 'icon-list',
-    order: 2,
+    icon: 'icon-file',
+    order: 3,
   },
   children: [
     {

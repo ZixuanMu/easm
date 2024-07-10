@@ -6,10 +6,10 @@ const RESULT: AppRouteRecordRaw = {
   name: 'result',
   component: DEFAULT_LAYOUT,
   meta: {
-    locale: 'menu.result',
-    icon: 'icon-check-circle',
+    locale: 'menu.phishing',
+    icon: 'icon-email',
     requiresAuth: true,
-    order: 5,
+    order: 6,
   },
   children: [
     {

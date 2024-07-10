@@ -6,9 +6,9 @@ const PROFILE: AppRouteRecordRaw = {
   name: 'profile',
   component: DEFAULT_LAYOUT,
   meta: {
-    locale: 'menu.profile',
+    locale: 'menu.footage',
     requiresAuth: true,
-    icon: 'icon-file',
+    icon: 'icon-common',
     order: 4,
   },
   children: [

@@ -5,19 +5,14 @@
       <a-grid :cols="24" :row-gap="16">
         <a-grid-item :span="24">
           <DataOverview />
-          <a-divider/>
         </a-grid-item>
-       
+
         <a-grid-item class="left-panel"  :span="12">
-          <div class="panel">
           <ContentChart />
-        </div>
         </a-grid-item>
         <a-grid-item class="right-panel"  :span="12">
-          <div class="panel">
+        
         <ContentChart />
-        </div>
-     
         </a-grid-item>
     <a-grid-item class="panel" :span="24">
       <div class="panel">
