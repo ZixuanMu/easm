@@ -9,13 +9,12 @@ const data = Mock.mock({
   'list|55': [
     {
       'id|8': /[A-Z][a-z][-][0-9]/,
-      'number|2-3': /[0-9]/,
-      'name|4-8': /[A-Z]/,
-      'contentType|1': ['img', 'horizontalVideo', 'verticalVideo'],
-      'count|2-3': /[0-9]/,
+      'taskname|4-8': /[A-Za-z]/,
+      'tasktype|1': ['Type A', 'Type B', 'Type C'],
+      'usergroup|1': ['Group 1', 'Group 2', 'Group 3'],
       'status|1': ['online', 'offline'],
-      'filterType|1': ['artificial', 'rules'],
       'createdTime': Random.datetime(),
+      'completionRate|0-100': 1,
     },
   ],
 });

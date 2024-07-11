@@ -16,7 +16,7 @@
         </a-grid-item>
     <a-grid-item class="panel" :span="24">
       <div class="panel">
-          <PopularContent />
+          <RecentTraining />
       </div>
     </a-grid-item>
   </a-grid>
@@ -45,7 +45,7 @@
 <script lang="ts" setup>
   import Banner from './components/banner.vue';
   import ContentChart from './components/content-chart.vue';
-  import PopularContent from './components/popular-content.vue';
+  import RecentTraining from './components/recent-training.vue';
   import QuickOperation from './components/quick-operation.vue';
   import Announcement from './components/announcement.vue';
   import ContentTypeDistribution from './components/content-type-distribution.vue';

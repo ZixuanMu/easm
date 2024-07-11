@@ -35,6 +35,24 @@ const textList = [
     title: '人民快评：没想到“浓眉大眼”的…',
     increases: 37,
   },
+  {
+    key: 6,
+    clickNumber: '124.2w+',
+    title: '人民快评：没想到“浓眉大眼”的…',
+    increases: 37,
+  },
+  {
+    key: 7,
+    clickNumber: '124.2w+',
+    title: '人民快评：没想到“浓眉大眼”的…',
+    increases: 37,
+  },
+  {
+    key: 8,
+    clickNumber: '124.2w+',
+    title: '人民快评：没想到“浓眉大眼”的…',
+    increases: 37,
+  },
 ];
 const imageList = [
   {
@@ -124,6 +142,34 @@ setupMock({
         return successResponseWrap([...imageList]);
       }
       return successResponseWrap([...textList]);
+    });
+    Mock.mock(new RegExp('/api/dashboard/getUserNum'), () => {
+
+      return successResponseWrap({
+        count: 748438,
+        growth: 1525,
+      });
+    });
+    Mock.mock(new RegExp('/api/dashboard/getFootageNum'), () => {
+
+      return successResponseWrap({
+        count: 4578,
+        growth: 87,
+      });
+    });
+    Mock.mock(new RegExp('/api/dashboard/getTrainingPercent'), () => {
+
+      return successResponseWrap({
+        count: 32.3,
+        growth: -0.2,
+      });
+    });
+    Mock.mock(new RegExp('/api/dashboard/getTrainingNum'), () => {
+   
+      return successResponseWrap({
+        count: 35456,
+        growth: 546,
+      });
     });
   },
 });

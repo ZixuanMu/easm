@@ -6,27 +6,27 @@
     :body-style="{ paddingTop: 0 }"
     style="height: 166px"
   >
-    <template #extra>
+    <!-- <template #extra>
       <a-link>{{ $t('workplace.viewMore') }}</a-link>
-    </template>
+    </template> -->
     <a-row>
       <a-col :span="12">
-        <a-link>
+        <a-link icon class="custom-link">
           {{ $t('workplace.docs.productOverview') }}
         </a-link>
       </a-col>
       <a-col :span="12">
-        <a-link>
+        <a-link icon class="custom-link">
           {{ $t('workplace.docs.userGuide') }}
         </a-link>
       </a-col>
       <a-col :span="12">
-        <a-link>
+        <a-link icon class="custom-link">
           {{ $t('workplace.docs.workflow') }}
         </a-link>
       </a-col>
       <a-col :span="12">
-        <a-link>
+        <a-link icon class="custom-link">
           {{ $t('workplace.docs.interfaceDocs') }}
         </a-link>
       </a-col>
@@ -34,9 +34,14 @@
   </a-card>
 </template>
 
+
+
 <style lang="less" scoped>
   .arco-card-body .arco-link {
     margin: 10px 0;
     color: rgb(var(--gray-8));
+  }
+  .custom-link {
+    font-size: 17px; /* 调整字体大小 */
   }
 </style>

@@ -1,4 +1,4 @@
-\<template>
+<template>
   <a-spin :loading="loading" style="width: 100%">
     <a-card :bordered="false" :style="cardStyle">
       <div class="content-wrap">
@@ -7,12 +7,13 @@
             :title="title"
             :value="renderData.count"
             :value-from="0"
+            :precision="computedPrecision"
             animation
             show-group-separator
-          />
+          ><template v-if="props.quota === 'percent'" #suffix>%</template></a-statistic>
           <div class="desc">
             <a-typography-text type="secondary" class="label">
-              {{ $t('dataAnalysis.card.yesterday') }}
+              {{ $t('workplace.newFromYesterday') }}
             </a-typography-text>
             <a-typography-text type="danger">
               {{ renderData.growth }}
@@ -34,10 +35,12 @@
   import { ref, computed, PropType, CSSProperties } from 'vue';
   import useLoading from '@/hooks/loading';
   import {
-    queryPublicOpinionAnalysis,
-    PublicOpinionAnalysis,
-    PublicOpinionAnalysisRes,
-  } from '@/api/visualization';
+    getUserNum,
+    DataOverViewRes,
+    getFootageNum,
+    getTrainingPercent,
+    getTrainingNum
+  } from '@/api/dashboard/dataoverview';
 
   const props = defineProps({
     title: {
@@ -57,24 +60,42 @@
   });
 
   const { loading, setLoading } = useLoading(true);
-  const renderData = ref<PublicOpinionAnalysisRes>({
+  const renderData = ref<DataOverViewRes>({
     count: 0,
     growth: 0,
-    chartData: [],
   });
 
-  const fetchData = async (params: PublicOpinionAnalysis) => {
+  const fetchData = async () => {
     try {
-      const { data } = await queryPublicOpinionAnalysis(params);
-      renderData.value = data;
+      if (props.quota === 'user') {
+         const { data } = await getUserNum();
+
+         renderData.value = data;
+       } 
+       if (props.quota === 'footage') {
+         const { data } = await getFootageNum();
+         renderData.value = data;
+       }
+       if (props.quota === 'percent') {
+
+         const { data } = await getTrainingPercent();
+                 console.log(data)
+         renderData.value = data;
+       }
+       if (props.quota === 'training') {
+         const { data } = await getTrainingNum();
+         renderData.value = data;
+       } 
+
     } catch (err) {
+      console.log(err);
       // you can report use errorHandler or other
     } finally {
       setLoading(false);
     }
   };
 
-  fetchData({ quota: props.quota });
+  fetchData();
 
   const imageSrc = computed(() => {
     // 根据不同的quota值设置不同的图片路径
@@ -91,6 +112,10 @@
       return new URL('@/assets/workplace/training.png', import.meta.url).href;
     } 
     return new URL('@/assets/path/to/defaultImage.png', import.meta.url).href;
+  });
+
+  const computedPrecision = computed(() => {
+    return props.quota === 'percent' ? 2 : undefined;
   });
 </script>
 

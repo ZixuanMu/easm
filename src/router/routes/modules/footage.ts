@@ -15,7 +15,7 @@ const FOOTAGE: AppRouteRecordRaw = {
     {
       path: 'basic',
       name: 'Basic',
-      component: () => import('@/views/profile/basic/index.vue'),
+      component: () => import('@/views/footage/index.vue'),
       meta: {
         locale: 'menu.profile.basic',
         requiresAuth: true,

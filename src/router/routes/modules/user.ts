@@ -32,6 +32,16 @@ const USER: AppRouteRecordRaw = {
         roles: ['*'],
       },
     },
+    {
+      path: 'rolemanager',
+      name: 'Rolemanager',
+      component: () => import('@/views/user/rolemanager/index.vue'),
+      meta: {
+        locale: 'menu.user.rolemanager',
+        requiresAuth: true,
+        roles: ['*'],
+    },
+  }
   ],
 };
 
