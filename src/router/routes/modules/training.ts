@@ -13,8 +13,8 @@ const TRAINING: AppRouteRecordRaw = {
   },
   children: [
     {
-      path: 'traningmanager',
-      name: 'traningmanager',
+      path: 'trainingmanager',
+      name: 'trainingmanager',
       component: () => import('@/views/training/trainingmanager/index.vue'),
       meta: {
         locale: 'menu.training.trainingmanager',

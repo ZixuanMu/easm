@@ -8,7 +8,7 @@ const FOOTAGE: AppRouteRecordRaw = {
   meta: {
     locale: 'menu.footage',
     requiresAuth: true,
-    icon: 'icon-common',
+    icon: 'icon-storage',
     order: 4,
   },
   children: [

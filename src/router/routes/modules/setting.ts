@@ -2,8 +2,8 @@ import { DEFAULT_LAYOUT } from '../base';
 import { AppRouteRecordRaw } from '../types';
 
 const SETTING: AppRouteRecordRaw = {
-  path: '/task',
-  name: 'task',
+  path: '/settings',
+  name: 'settings',
   component: DEFAULT_LAYOUT,
   meta: {
     locale: 'menu.settings',

@@ -20,12 +20,11 @@
             </a-typography-text>
           </div>
         </div>
-        <div >
-
+        <div>
           <a-avatar  class="col-avatar">
           <img class="img" :src="imageSrc" />
-        </a-avatar>
-        </div>
+          </a-avatar>
+          </div>
       </div>
     </a-card>
   </a-spin>
@@ -113,7 +112,7 @@
   .content-wrap {
     width: 100%;
     padding: 16px;
-    white-space: nowrap;
+    white-space: nowrap; 
   }
   :deep(.content) {
     float: left;
@@ -132,8 +131,7 @@
   }
   .col-avatar {
     float: right;
-    size:50px;
-    margin-left: 52px;
+    size:10px;
     background-color: var(--color-fill-2);
   }
   .label {

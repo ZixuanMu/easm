@@ -2,8 +2,8 @@ import { DEFAULT_LAYOUT } from '../base';
 import { AppRouteRecordRaw } from '../types';
 
 const PHISHING: AppRouteRecordRaw = {
-  path: '/result',
-  name: 'result',
+  path: '/phishing',
+  name: 'phishing',
   component: DEFAULT_LAYOUT,
   meta: {
     locale: 'menu.phishing',
