@@ -40,7 +40,7 @@
     getFootageNum,
     getTrainingPercent,
     getTrainingNum
-  } from '@/api/dashboard/dataoverview';
+  } from '@/api/dashboard/data-overview';
 
   const props = defineProps({
     title: {
