@@ -21,31 +21,32 @@
 
 <script lang="ts" setup>
   const list = [
-    {
-      type: 'orangered',
-      label: '活动',
-      content: '内容最新优惠活动',
-    },
-    {
-      type: 'cyan',
-      label: '消息',
-      content: '新增内容尚未通过审核，详情请点击查看。',
-    },
-    {
-      type: 'blue',
-      label: '通知',
-      content: '当前产品试用期即将结束，如需续费请点击查看。',
-    },
-    {
-      type: 'blue',
-      label: '通知',
-      content: '1月新系统升级计划通知',
-    },
-    {
-      type: 'cyan',
-      label: '消息',
-      content: '新增内容已经通过审核，详情请点击查看。',
-    },
+  {
+  type: 'orangered',
+  label: '培训',
+  content: '新一期的网络安全培训活动已经发布，请通知相关人员及时报名。',
+},
+{
+  type: 'cyan',
+  label: '消息',
+  content: '某用户上传的培训材料未通过审核，请查看详情并通知整改。',
+},
+{
+  type: 'blue',
+  label: '通知',
+  content: '当前培训课程即将到期，请确保所有参与者完成课程。',
+},
+{
+  type: 'blue',
+  label: '通知',
+  content: '系统将于1月进行安全更新，届时可能影响培训系统的使用，请提前做好准备。',
+},
+{
+  type: 'cyan',
+  label: '消息',
+  content: '某用户上传的培训材料已通过审核，相关内容已更新。',
+},
+
   ];
 </script>
 

@@ -1,30 +1,86 @@
 <template>
-  <div class="content">
-    <a-result class="result" status="404" :subtitle="'not found'"> </a-result>
-    <div class="operation-row">
-      <a-button key="back" type="primary" @click="back"> back </a-button>
-    </div>
+  <div class="container">
+    <Breadcrumb :items="['menu.list', 'menu.list.cardList']" />
+    <a-row :gutter="20" align="stretch">
+      <a-col :span="24">
+        <a-card class="general-card" :title="$t('menu.list.cardList')">
+          <a-row justify="space-between">
+            <a-col :span="24">
+              <a-tabs :default-active-tab="1" type="rounded">
+                <a-tab-pane key="1" :title="$t('cardList.tab.title.all')">
+                  <FootageCard/>
+                </a-tab-pane>
+                <a-tab-pane key="2" :title="$t('cardList.tab.title.content')">
+                </a-tab-pane>
+                <a-tab-pane key="3" :title="$t('cardList.tab.title.service')">
+                </a-tab-pane>
+                <a-tab-pane key="4" :title="$t('cardList.tab.title.preset')">
+                </a-tab-pane>
+              </a-tabs>
+            </a-col>
+            <a-input-search
+              :placeholder="$t('cardList.searchInput.placeholder')"
+              style="width: 240px; position: absolute; top: 60px; right: 20px"
+            />
+          </a-row>
+        </a-card>
+      </a-col>
+    </a-row>
   </div>
 </template>
 
 <script lang="ts" setup>
-  import { useRouter } from 'vue-router';
+  import FootageCard from './components/footage-card.vue';
 
-  const router = useRouter();
-  const back = () => {
-    // warning： Go to the node that has the permission
-    router.push({ name: 'Workplace' });
+</script>
+
+<script lang="ts">
+  export default {
+    name: 'Card',
   };
 </script>
 
 <style scoped lang="less">
-  .content {
-    // padding-top: 100px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-left: -95px;
-    margin-top: -121px;
-    text-align: center;
+  .container {
+    padding: 0 20px 20px 20px;
+    :deep(.arco-list-content) {
+      overflow-x: hidden;
+    }
+
+    :deep(.arco-card-meta-title) {
+      font-size: 14px;
+    }
+  }
+  :deep(.arco-list-col) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  :deep(.arco-list-item) {
+    width: 33%;
+  }
+
+  :deep(.block-title) {
+    margin: 0 0 12px 0;
+    font-size: 14px;
+  }
+  :deep(.list-wrap) {
+    // min-height: 140px;
+    .list-row {
+      align-items: stretch;
+      .list-col {
+        margin-bottom: 16px;
+      }
+    }
+    :deep(.arco-space) {
+      width: 100%;
+      .arco-space-item {
+        &:last-child {
+          flex: 1;
+        }
+      }
+    }
   }
 </style>

@@ -42,6 +42,6 @@
     color: rgb(var(--gray-8));
   }
   .custom-link {
-    font-size: 17px; /* 调整字体大小 */
+    font-size: 15px; /* 调整字体大小 */
   }
 </style>

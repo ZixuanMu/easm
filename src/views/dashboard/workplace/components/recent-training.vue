@@ -32,41 +32,8 @@
           :pagination="false"
           :bordered="false"
           :scroll="{ x: '100%', y: '390px' }"
-        >
-          <template #columns>
-            <a-table-column title="序号" data-index="key"></a-table-column>
-            <a-table-column title="培训名称" data-index="title">
-              <template #cell="{ record }">
-                <a-typography-paragraph
-                  :ellipsis="{
-                    rows: 1,
-                  }"
-                >
-                  {{ record.title }}
-                </a-typography-paragraph>
-              </template>
-            </a-table-column>
-            <a-table-column title="培训内容" data-index="clickNumber">
-            </a-table-column>
-            <a-table-column
-              title="完成度"
-              data-index="increases"
-              :sortable="{
-                sortDirections: ['ascend', 'descend'],
-              }"
-            >
-              <template #cell="{ record }">
-                <div class="increases-cell">
-                  <span>{{ record.increases }}%</span>
-                  <icon-caret-up
-                    v-if="record.increases !== 0"
-                    style="color: #f53f3f; font-size: 8px"
-                  />
-                </div>
-              </template>
-            </a-table-column>
-          </template>
-        </a-table>
+          :columns="columns"
+        />
       </a-space>
     </a-card>
   </a-spin>
@@ -81,6 +48,7 @@
   const type = ref('text');
   const { loading, setLoading } = useLoading();
   const renderList = ref<TableData[]>();
+
   const fetchData = async (contentType: string) => {
     try {
       setLoading(true);
@@ -92,22 +60,54 @@
       setLoading(false);
     }
   };
+
   const typeChange = (contentType: string) => {
     fetchData(contentType);
   };
+
   fetchData('text');
+
+  const columns = [
+    {
+      title: '序号',
+      dataIndex: 'key',
+      width: 150, // Adjust the width as needed
+      align: 'center',
+    },
+    {
+      title: '培训名称',
+      dataIndex: 'title',
+      align: 'center',
+
+    },
+    {
+      title: '培训范围',
+      dataIndex: 'clickNumber',
+      width: 250, // Adjust the width as needed
+      align: 'center',
+    },
+    {
+      title: '完成度',
+      dataIndex: 'increases',
+      width: 300, // Adjust the width as needed
+      align: 'center',
+
+    },
+  ];
 </script>
 
 <style scoped lang="less">
   .general-card {
     min-height: 395px;
   }
+
   :deep(.arco-table-tr) {
     height: 44px;
     .arco-typography {
       margin-bottom: 0;
     }
   }
+
   .increases-cell {
     display: flex;
     align-items: center;
