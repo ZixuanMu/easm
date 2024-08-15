@@ -135,9 +135,9 @@
         <a-dropdown trigger="click">
           <a-avatar
             :size="32"
-            :style="{ marginRight: '8px', cursor: 'pointer' }"
+            :style="{ backgroundColor: '#14a9f8' }"
           >
-            <img alt="avatar" :src="avatar" />
+            张三
           </a-avatar>
           <template #content>
             <a-doption>

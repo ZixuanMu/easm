@@ -29,8 +29,8 @@ export default {
   'workplace.allProject': '所有项目',
   'workplace.loadMore': '加载更多',
   'workplace.viewMore': '查看更多',
-  'workplace.contentData': '内容数据',
-  'workplace.popularContent': '线上热门内容',
+  'workplace.contentData': '最近七日完成率',
+  'workplace.popularContent': '培训内容',
   'workplace.popularContent.text': '全部',
   'workplace.popularContent.image': '已完成',
   'workplace.popularContent.video': '未完成',
@@ -40,4 +40,5 @@ export default {
   'workplace.dataoverview.numoffootage': '素材总数',
   'workplace.dataoverview.numoftraining': '培训个数',
   'workplace.dataoverview.percentageoftraining': '培训完成比例',
+  'multiDAnalysis.card.title.contentTypeDistribution':'素材种类',
 };

@@ -22,6 +22,17 @@ const Task: AppRouteRecordRaw = {
         roles: ['*'],
       },
     },
+    {
+      path: 'taskcreate',
+      name: 'Taskcreate',
+      component: () => import('@/views/task/taskcreate/index.vue'),
+      meta: {
+        locale: 'menu.task.taskcreate',
+        requiresAuth: true,
+        hideInMenu:true,
+        roles: ['*'],
+      },
+    },
   ],
 };
 

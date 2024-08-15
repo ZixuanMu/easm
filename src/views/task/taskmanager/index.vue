@@ -93,7 +93,7 @@
       <a-row style="margin-bottom: 16px">
         <a-col :span="12">
           <a-space>
-            <a-button type="primary">
+            <a-button @click="create" type="primary">
               <template #icon>
                 <icon-plus />
               </template>
@@ -212,7 +212,9 @@ import type { SelectOptionData } from '@arco-design/web-vue/es/select/interface'
 import type { TableColumnData } from '@arco-design/web-vue/es/table/interface';
 import cloneDeep from 'lodash/cloneDeep';
 import Sortable from 'sortablejs';
+import { useRouter } from 'vue-router';
 
+const router =useRouter();
 type SizeProps = 'mini' | 'small' | 'medium' | 'large';
 type Column = TableColumnData & { checked?: true };
 
@@ -352,6 +354,13 @@ const onPageChange = (current: number) => {
 };
 
 fetchData();
+
+const create =() =>{
+
+router.push('/task/taskcreate');
+
+}
+
 const reset = () => {
   formModel.value = generateFormModel();
 };

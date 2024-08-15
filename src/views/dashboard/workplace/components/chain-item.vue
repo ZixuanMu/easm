@@ -156,7 +156,7 @@
   }
   .col-avatar {
     float: right;
-    size:10px;
+    size:8px;
     background-color: var(--color-fill-2);
   }
   .label {

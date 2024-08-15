@@ -42,10 +42,10 @@
 
 .iconquick {
   font-size: 25px; /* 调整图标的大小 */
-  margin-bottom: 8px; /* 调整图标和文字之间的距离 */
+  margin-bottom: 2px; /* 调整图标和文字之间的距离 */
 }
 
 .text {
-  font-size: 16px; /* 适当调整文本的大小 */
+  font-size: 14px; /* 适当调整文本的大小 */
 }
 </style>

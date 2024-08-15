@@ -36,12 +36,12 @@
         center: ['40%', '50%'],
         radius: 80,
         indicator: [
-          { name: '国际', max: 6500 },
-          { name: '财经', max: 22000 },
-          { name: '科技', max: 30000 },
+          { name: '钓鱼邮件', max: 6500 },
+          { name: '手机安全', max: 22000 },
+          { name: '互联网安全', max: 30000 },
           { name: '其他', max: 38000 },
-          { name: '体育', max: 52000 },
-          { name: '娱乐', max: 25000 },
+          { name: '内部攻击', max: 52000 },
+          { name: '设备安全', max: 25000 },
         ],
         axisName: {
           color: isDark ? '#ffffff' : '#1D2129',

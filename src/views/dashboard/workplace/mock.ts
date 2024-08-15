@@ -7,117 +7,121 @@ import setupMock, { successResponseWrap } from '@/utils/setup-mock';
 const textList = [
   {
     key: 1,
-    clickNumber: '346.3w+',
-    title: '经济日报：财政政策要精准提升…',
-    increases: 35,
+    clickNumber: '网络安全部门',
+    title: '网络安全培训：如何防范网络钓鱼攻击',
+    increases: '35%',
   },
   {
     key: 2,
-    clickNumber: '324.2w+',
-    title: '双12遇冷，消费者厌倦了电商平…',
-    increases: 22,
+    clickNumber: '数据保护组',
+    title: '网络安全培训：密码管理的重要性',
+    increases: '35%',
   },
   {
     key: 3,
-    clickNumber: '318.9w+',
-    title: '致敬坚守战“疫”一线的社区工作…',
-    increases: 9,
+    clickNumber: '网络安全部门',
+    title: '网络安全培训：识别恶意软件的方法',
+    increases: '45%',
   },
   {
     key: 4,
-    clickNumber: '257.9w+',
-    title: '普高还是职高？家长们陷入选择…',
-    increases: 17,
+    clickNumber: '网络安全部门',
+    title: '网络安全培训：保护个人信息的最佳实践',
+    increases: '37%',
   },
   {
     key: 5,
-    clickNumber: '124.2w+',
-    title: '人民快评：没想到“浓眉大眼”的…',
-    increases: 37,
+    clickNumber: '企业安全组',
+    title: '网络安全培训：企业数据安全的重要性',
+    increases: '16%',
   },
   {
     key: 6,
-    clickNumber: '124.2w+',
-    title: '人民快评：没想到“浓眉大眼”的…',
-    increases: 37,
+    clickNumber: '安全培训组',
+    title: '网络安全培训：防范社交工程攻击',
+    increases: '58%',
   },
   {
     key: 7,
-    clickNumber: '124.2w+',
-    title: '人民快评：没想到“浓眉大眼”的…',
-    increases: 37,
+    clickNumber: '安全培训组',
+    title: '网络安全培训：多因素认证的使用',
+    increases: '89%',
   },
   {
     key: 8,
-    clickNumber: '124.2w+',
-    title: '人民快评：没想到“浓眉大眼”的…',
+    clickNumber: '网络安全部门',
+    title: '网络安全培训：安全浏览器的使用技巧',
     increases: 37,
   },
 ];
+
 const imageList = [
   {
     key: 1,
-    clickNumber: '15.3w+',
-    title: '杨涛接替陆慷出任外交部美大司…',
+    clickNumber: '移动设备安全组',
+    title: '网络安全培训：保护移动设备安全',
     increases: 15,
   },
   {
     key: 2,
-    clickNumber: '12.2w+',
-    title: '图集：龙卷风袭击美国多州房屋…',
+    clickNumber: '应急响应组',
+    title: '网络安全培训：如何应对网络攻击',
     increases: 26,
   },
   {
     key: 3,
-    clickNumber: '18.9w+',
-    title: '52岁大姐贴钱照顾自闭症儿童八…',
+    clickNumber: '云安全组',
+    title: '网络安全培训：云存储的安全使用',
     increases: 9,
   },
   {
     key: 4,
-    clickNumber: '7.9w+',
-    title: '杭州一家三口公园宿营取暖中毒',
+    clickNumber: '家庭安全组',
+    title: '网络安全培训：家庭网络安全',
     increases: 0,
   },
   {
     key: 5,
-    clickNumber: '5.2w+',
-    title: '派出所副所长威胁市民？警方调…',
+    clickNumber: '加密技术组',
+    title: '网络安全培训：数据加密的重要性',
     increases: 4,
   },
 ];
+
 const videoList = [
   {
     key: 1,
-    clickNumber: '367.6w+',
-    title: '这是今日10点的南京',
+    clickNumber: '网络钓鱼防护组',
+    title: '网络安全培训：如何防止网络钓鱼',
     increases: 5,
   },
   {
     key: 2,
-    clickNumber: '352.2w+',
-    title: '立陶宛不断挑衅致经济受损民众…',
+    clickNumber: '勒索软件组',
+    title: '网络安全培训：如何应对勒索软件',
     increases: 17,
   },
   {
     key: 3,
-    clickNumber: '348.9w+',
-    title: '韩国艺人刘在石确诊新冠',
+    clickNumber: '在线支付安全组',
+    title: '网络安全培训：保护在线支付安全',
     increases: 30,
   },
   {
     key: 4,
-    clickNumber: '346.3w+',
-    title: '关于北京冬奥会，文在寅表态',
+    clickNumber: '网站安全组',
+    title: '网络安全培训：识别假冒网站',
     increases: 12,
   },
   {
     key: 5,
-    clickNumber: '271.2w+',
-    title: '95后现役军人荣立一等功',
+    clickNumber: 'VPN使用组',
+    title: '网络安全培训：如何使用VPN',
     increases: 2,
   },
 ];
+
+
 setupMock({
   setup() {
     Mock.mock(new RegExp('/api/content-data'), () => {
@@ -127,7 +131,7 @@ setupMock({
         return new Array(count).fill(0).map((el, idx) => ({
           x: dayjs()
             .day(idx - 2)
-            .format('YYYY-MM-DD'),
+            .format('MM.DD'),
           y: presetData[idx],
         }));
       };
@@ -146,14 +150,14 @@ setupMock({
     Mock.mock(new RegExp('/api/dashboard/getUserNum'), () => {
 
       return successResponseWrap({
-        count: 748438,
-        growth: 1525,
+        count: 1438,
+        growth: 56,
       });
     });
     Mock.mock(new RegExp('/api/dashboard/getFootageNum'), () => {
 
       return successResponseWrap({
-        count: 4578,
+        count: 578,
         growth: 87,
       });
     });
@@ -161,14 +165,14 @@ setupMock({
 
       return successResponseWrap({
         count: 32.3,
-        growth: -0.2,
+        growth: 1.2,
       });
     });
     Mock.mock(new RegExp('/api/dashboard/getTrainingNum'), () => {
    
       return successResponseWrap({
-        count: 35456,
-        growth: 546,
+        count: 120,
+        growth: 2,
       });
     });
   },
