@@ -13,7 +13,7 @@
           :xxl="6"
           class="list-col"
         >
-          <div class="card-wrap empty-wrap">
+          <div class="card-wrap empty-wrap" @click="createNewFootage">
             <a-card :bordered="false" hoverable>
               <a-result :status="null" :title="$t('cardList.content.action')">
                 <template #icon>
@@ -68,15 +68,21 @@
   </template>
   
   <script lang="ts" setup>
+    import { useRouter } from 'vue-router';
     import { queryInspectionList, ServiceRecord } from '@/api/list';
     import useRequest from '@/hooks/request';
     import CardWrap from './card-wrap.vue';
   
+
+    const router =useRouter();
     const defaultValue: ServiceRecord[] = new Array(3).fill({});
     const { loading, response: renderData } = useRequest<ServiceRecord[]>(
       queryInspectionList,
       defaultValue
     );
+    const createNewFootage =() =>{
+        router.push('/footage/footagecreate');
+}
   </script>
   
   <style scoped lang="less">

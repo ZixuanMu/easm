@@ -2,11 +2,11 @@ import axios from 'axios';
 
 export interface BaseInfoModel {
   footageName: string;
-  channelType: string;
+  footageType: string;
   promotionTime: string[];
   promoteLink: string;
 }
-export interface ChannelInfoModel {
+export interface footageInfoModel {
   advertisingSource: string;
   advertisingMedia: string;
   keyword: string[];
@@ -14,8 +14,8 @@ export interface ChannelInfoModel {
   advertisingContent: string;
 }
 
-export type UnitChannelModel = BaseInfoModel & ChannelInfoModel;
+export type UnitfootageModel = BaseInfoModel & footageInfoModel;
 
-export function submitChannelForm(data: UnitChannelModel) {
-  return axios.post('/api/channel-form/submit', { data });
+export function submitfootageForm(data: UnitfootageModel) {
+  return axios.post('/api/footage-form/submit', { data });
 }

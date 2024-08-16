@@ -1,5 +1,5 @@
 <template>
-  <a-card class="card-wrap" hoverable="false" :style="{ width: '100%',height:'100%' }">
+  <a-card class="card-wrap" :style="{ width: '100%',height:'100%' }">
     <template #cover>
       <div
         class="image-container"

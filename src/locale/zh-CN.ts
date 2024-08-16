@@ -4,7 +4,7 @@ import localeLogin from '@/views/login/locale/zh-CN';
 import localeWorkplace from '@/views/dashboard/workplace/locale/zh-CN';
 import localeTaskmanager from '@/views/task/taskmanager/locale/zh-CN';
 import localeTaskcreate from '@/views/task/taskcreate/locale/zh-CN';
-import localeFootage from '@/views/footage/locale/zh-CN'
+import localeFootage from '@/views/footage/footagemanager/locale/zh-CN'
 
 import locale403 from '@/views/exception/403/locale/zh-CN';
 import locale404 from '@/views/exception/404/locale/zh-CN';

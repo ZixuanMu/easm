@@ -9,7 +9,7 @@ export default {
   // 'cardList.statistic.disable': '未启用',
   'cardList.content.delete': '删除',
   'cardList.content.inspection': '质检',
-  'cardList.content.action': '点击创建质检内容队列',
+  'cardList.content.action': '点击创建新素材',
   'cardList.service.open': '开通服务',
   'cardList.service.cancel': '取消服务',
   'cardList.service.renew': '续约服务',
