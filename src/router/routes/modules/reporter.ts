@@ -17,7 +17,7 @@ const REPORTER: AppRouteRecordRaw = {
       name: 'SearchTable',
       component: () => import('@/views/report/index.vue'),
       meta: {
-        locale: 'menu.list.searchTable',
+        locale: 'menu.footageList.searchTable',
         requiresAuth: true,
         roles: ['*'],
       },
@@ -27,7 +27,7 @@ const REPORTER: AppRouteRecordRaw = {
       name: 'Card',
       component: () => import('@/views/report/index.vue'),
       meta: {
-        locale: 'menu.list.cardList',
+        locale: 'menu.footageList.cardList',
         requiresAuth: true,
         roles: ['*'],
       },

@@ -18,7 +18,7 @@ export default {
   'menu.server.dashboard': 'Dashboard-Server',
   'menu.server.workplace': 'Workplace-Server',
   'menu.server.monitor': 'Monitor-Server',
-  'menu.list': 'List',
+  'menu.footageList': '素材仓库',
   'menu.result': 'Result',
   'menu.exception': 'Exception',
   'menu.profile': 'Profile',

@@ -6,7 +6,7 @@ const FOOTAGE: AppRouteRecordRaw = {
   name: 'Footage',
   component: DEFAULT_LAYOUT,
   meta: {
-    locale: 'menu.footage',
+    locale: 'menu.footageList',
     requiresAuth: true,
     icon: 'icon-storage',
     order: 4,
@@ -17,7 +17,17 @@ const FOOTAGE: AppRouteRecordRaw = {
       name: 'Footagemanager',
       component: () => import('@/views/footage/footagemanager/index.vue'),
       meta: {
-        locale: 'menu.profile.basic',
+        locale: 'menu.footageList.footagemanager',
+        requiresAuth: true,
+        roles: ['admin'],
+      },
+    },
+     {
+      path: '/footage/labelmanager',
+      name: 'Labelmanager',
+      component: () => import('@/views/footage/labelmanager/index.vue'),
+      meta: {
+        locale: 'menu.footageList.labelmanager',
         requiresAuth: true,
         roles: ['admin'],
       },
@@ -27,7 +37,7 @@ const FOOTAGE: AppRouteRecordRaw = {
       name: 'Footagercreate',
       component: () => import('@/views/footage/footagecreate/index.vue'),
       meta: {
-        locale: 'menu.profile.basic',
+        locale: 'menu.footageList',
         requiresAuth: true,
         hideInMenu:true,
         roles: ['admin'],

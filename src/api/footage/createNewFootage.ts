@@ -3,8 +3,7 @@ import axios from 'axios';
 export interface BaseInfoModel {
   footageName: string;
   footageType: string;
-  promotionTime: string[];
-  promoteLink: string;
+  label: string[];
 }
 export interface footageInfoModel {
   advertisingSource: string;

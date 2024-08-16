@@ -43,38 +43,17 @@
       </a-select>
     </a-form-item>
     <a-form-item
-      field="promotionTime"
-      :label="$t('stepForm.form.label.promotionTime')"
-      :rules="[
-        {
-          required: true,
-          message: $t('stepForm.form.error.promotionTime.required'),
-        },
-      ]"
-    >
-      <a-range-picker v-model="formData.promotionTime" />
-    </a-form-item>
-    <a-form-item
-      field="promoteLink"
-      :label="$t('stepForm.form.label.promoteLink')"
-      :rules="[
-        {
-          required: true,
-          message: $t('stepForm.form.error.promoteLink.required'),
-        },
-        {
-          type: 'url',
-          message: $t('stepForm.form.error.promoteLink.pattern'),
-        },
-      ]"
+      field="label"
+      :label="$t('stepForm.form.label.label')"
       row-class="keep-margin"
     >
-      <a-input
-        v-model="formData.promoteLink"
-        :placeholder="$t('stepForm.placeholder.promoteLink')"
+      <a-input-tag
+        v-model="formData.label"
+        :placeholder="$t('stepForm.placeholder.label')"
+        allow-clear
       />
       <template #help>
-        <span>{{ $t('stepForm.form.tip.promoteLink') }}</span>
+        <span>{{ $t('stepForm.form.tip.label') }}</span>
       </template>
     </a-form-item>
     <a-form-item>
@@ -95,8 +74,7 @@
   const formData = ref<BaseInfoModel>({
     footageName: '',
     footageType: '',
-    promotionTime: [],
-    promoteLink: 'https://arco.design',
+    label: [],
   });
 
   const onNextClick = async () => {

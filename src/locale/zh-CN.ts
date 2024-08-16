@@ -4,7 +4,8 @@ import localeLogin from '@/views/login/locale/zh-CN';
 import localeWorkplace from '@/views/dashboard/workplace/locale/zh-CN';
 import localeTaskmanager from '@/views/task/taskmanager/locale/zh-CN';
 import localeTaskcreate from '@/views/task/taskcreate/locale/zh-CN';
-import localeFootage from '@/views/footage/footagemanager/locale/zh-CN'
+import localeFootage from '@/views/footage/footagemanager/locale/zh-CN';
+import localeFootageLabelmanager from '@/views/footage/labelmanager/locale/zh-CN';
 
 import locale403 from '@/views/exception/403/locale/zh-CN';
 import locale404 from '@/views/exception/404/locale/zh-CN';
@@ -23,7 +24,9 @@ export default {
   'menu.training': '培训管理',
   'menu.task': '任务管理',
   'menu.reporter': '报告',
-  'menu.footage': '素材仓库',
+  'menu.footageList': '素材仓库',
+  'menu.footageList.footagemanager': '素材管理',
+  'menu.footageList.labelmanager': '标签管理',
   'menu.user': '用户管理',
   'menu.phishing': '钓鱼邮件',
   'menu.risk': '风险评分',
@@ -32,6 +35,7 @@ export default {
   'navbar.action.locale': '切换为中文',
   ...localeTaskcreate,
   ...localeFootage,
+  ...localeFootageLabelmanager,
   ...localeSettings,
   ...localeMessageBox,
   ...localeLogin,

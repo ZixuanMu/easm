@@ -1,7 +1,7 @@
 <template>
     <div class="list-wrap">
       <a-typography-title class="block-title" :heading="6">
-        {{ $t('cardList.tab.title.content') }}
+        {{ $t('footageList.tab.title.content') }}
       </a-typography-title>
       <a-row class="list-row" :gutter="24">
         <a-col
@@ -15,7 +15,7 @@
         >
           <div class="card-wrap empty-wrap" @click="createNewFootage">
             <a-card :bordered="false" hoverable>
-              <a-result :status="null" :title="$t('cardList.content.action')">
+              <a-result :status="null" :title="$t('footageList.content.action')">
                 <template #icon>
                   <icon-plus style="font-size: 20px" />
                 </template>
@@ -42,8 +42,8 @@
             :default-value="item.enable"
             :action-type="item.actionType"
             :icon="item.icon"
-            :open-txt="$t('cardList.content.inspection')"
-            :close-txt="$t('cardList.content.delete')"
+            :open-txt="$t('footageList.content.inspection')"
+            :close-txt="$t('footageList.content.delete')"
             :show-tag="false"
           >
             <a-descriptions

@@ -1,25 +1,25 @@
 <template>
   <div class="container">
-    <Breadcrumb :items="['menu.list', 'menu.list.cardList']" />
+    <Breadcrumb :items="['menu.footageList', 'menu.footageList.footageList']" />
     <a-row :gutter="20" align="stretch">
       <a-col :span="24">
-        <a-card class="general-card" :title="$t('menu.list.cardList')">
+        <a-card class="general-card" :title="$t('menu.footageList.footageList')">
           <a-row justify="space-between">
             <a-col :span="24">
               <a-tabs :default-active-tab="1" type="rounded">
-                <a-tab-pane key="1" :title="$t('cardList.tab.title.all')">
+                <a-tab-pane key="1" :title="$t('footageList.tab.title.all')">
                   <FootageCard/>
                 </a-tab-pane>
-                <a-tab-pane key="2" :title="$t('cardList.tab.title.content')">
+                <a-tab-pane key="2" :title="$t('footageList.tab.title.content')">
                 </a-tab-pane>
-                <a-tab-pane key="3" :title="$t('cardList.tab.title.service')">
+                <a-tab-pane key="3" :title="$t('footageList.tab.title.service')">
                 </a-tab-pane>
-                <a-tab-pane key="4" :title="$t('cardList.tab.title.preset')">
+                <a-tab-pane key="4" :title="$t('footageList.tab.title.preset')">
                 </a-tab-pane>
               </a-tabs>
             </a-col>
             <a-input-search
-              :placeholder="$t('cardList.searchInput.placeholder')"
+              :placeholder="$t('footageList.searchInput.placeholder')"
               style="width: 240px; position: absolute; top: 60px; right: 20px"
             />
           </a-row>
