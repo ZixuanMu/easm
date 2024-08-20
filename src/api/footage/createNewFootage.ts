@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 export interface BaseInfoModel {
-  footageName: string;
-  footageType: string;
+
+  footageType: number;
   label: string[];
 }
 export interface footageInfoModel {

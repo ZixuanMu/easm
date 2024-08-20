@@ -11,7 +11,7 @@ export interface PolicyRecord {
 // 定义用于查询标签列表的参数结构
 export interface PolicyParams extends Partial<PolicyRecord> {
   page: number;       // 当前页码
-  page_size: number;  // 每页显示的标签数量
+  pageSize: number;  // 每页显示的标签数量
 }
 
 // 定义标签列表响应的数据结构

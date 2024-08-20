@@ -124,7 +124,7 @@
         @page-change="onPageChange"
       >
         <template #index="{ rowIndex }">
-          {{ rowIndex + 1 + (pagination.page-1) * pagination.page_size }}
+          {{ rowIndex + 1 + (pagination.page-1) * pagination.pageSize }}
         </template>
         <template #status="{ record }">
           <span v-if="record.status === 'offline'" class="circle"></span>
@@ -209,7 +209,7 @@ const size = ref<SizeProps>('medium');
 
 const basePagination: Pagination = {
   page: 1,
-  page_size: 10,
+  pageSize: 10,
 };
 const pagination = reactive({
   ...basePagination,
@@ -256,7 +256,7 @@ const columns = computed<TableColumnData[]>(() => [
   },
 ]);
 
-const fetchData = async (params: PolicyParams = { page: 1, page_size: 10 }) => {
+const fetchData = async (params: PolicyParams = { page: 1, pageSize: 10 }) => {
   setLoading(true);
   try {
     const res = await labelPolicyList(params) as any;

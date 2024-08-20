@@ -2,16 +2,27 @@ export default {
   'menu.form.step': '分步表单',
   'footage.step.title': '创建素材',
   'footage.step.title.baseInfo': '选择基本信息',
-  'footage.step.subTitle.baseInfo': '创建渠道活动',
-  'footage.step.title.channel': '输入渠道信息',
-  'footage.step.subTitle.channel': '输入详细的渠道信息',
+  'footage.step.subTitle.baseInfo': '创建素材',
+
+  'footage.form.footageType': '素材类型',
+  'footage.placeholder.footageType.article': '文章',
+  'footage.placeholder.footageType.video': '视频',
+  'footage.placeholder.footageType.exam': '考试',
+  'footage.placeholder.footageType': '请输入素材类型',
+  'footage.form.label': '素材标签',
+  'footage.placeholder.footageLabel': '请选择或输入后按回车创建',
+  'footage.form.tip.label': '按回车创建标签',
+
+  'footage.button.next': '下一步',
+  'footage.button.prev': '上一步',
+  'footage.button.submit': '提交',
+
+
+  'footage.step.subTitle.footage': '输入详细的渠道信息',
   'footage.step.title.finish': '完成创建',
   'footage.step.subTitle.finish': '创建成功',
   'footage.success.title': '提交成功',
   'footage.success.subTitle': '表单提交成功！',
-  'footage.button.next': '下一步',
-  'footage.button.prev': '上一步',
-  'footage.button.submit': '提交',
   'footage.button.again': '再次创建',
   'footage.button.view': '查看详情',
   'footage.form.label.activityName': '活动名称',
@@ -19,10 +30,10 @@ export default {
   'footage.form.error.activityName.required': '请输入活动名称',
   'footage.form.error.activityName.pattern':
     '输入汉字、字母或数字，最多20字符',
-  'footage.form.label.channelType': '渠道类型',
-  'footage.placeholder.channelType': '请选择渠道类型',
-  'footage.form.error.channelType.required': '请选择渠道类型',
-  'footage.form.label.promotionTime': '推广时间',
+
+
+  'footage.form.error.footageType.required': '请选择渠道类型',
+ 
   'footage.form.error.promotionTime.required': '请选择推广时间',
   'footage.form.label.promoteLink': '推广地址',
   'footage.form.error.promoteLink.required': '请输入推广地址',

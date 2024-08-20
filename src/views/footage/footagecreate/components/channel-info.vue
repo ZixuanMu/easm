@@ -6,46 +6,65 @@
     :label-col-props="{ span: 6 }"
     :wrapper-col-props="{ span: 18 }"
   >
-    <a-form-item
-      field="advertisingSource"
-      :label="$t('stepForm.form.label.advertisingSource')"
+  <a-form-item
+      field="footageName"
+      :label="$t('footage.form.footageName')"
       :rules="[
         {
           required: true,
-          message: $t('stepForm.form.error.advertisingSource.required'),
+          message: $t('footage.form.error.footageName.required'),
+        },
+        {
+          match: /^[a-zA-Z0-9\u4e00-\u9fa5]{1,20}$/,
+          message: $t('footage.form.error.footageName.pattern'),
+        },
+      ]"
+    >
+      <a-input
+        v-model="formData.footageName"
+        :placeholder="$t('footage.placeholder.footageName')"
+      />
+    </a-form-item>
+    <a-form-item
+      field="advertisingSource"
+      :label="$t('footage.form.advertisingSource')"
+      :rules="[
+        {
+          required: true,
+          message: $t('footage.form.error.advertisingSource.required'),
         },
       ]"
     >
       <a-input
         v-model="formData.advertisingSource"
-        :placeholder="$t('stepForm.placeholder.advertisingSource')"
+        :placeholder="$t('footage.placeholder.advertisingSource')"
       />
     </a-form-item>
     <a-form-item
       field="advertisingMedia"
-      :label="$t('stepForm.form.label.advertisingMedia')"
+      :label="$t('footage.form.advertisingMedia')"
       :rules="[
         {
           required: true,
-          message: $t('stepForm.form.error.advertisingMedia.required'),
+          message: $t('footage.form.error.advertisingMedia.required'),
         },
       ]"
     >
       <a-input
         v-model="formData.advertisingMedia"
-        :placeholder="$t('stepForm.placeholder.advertisingMedia')"
+        :placeholder="$t('footage.placeholder.advertisingMedia')"
       />
     </a-form-item>
     <a-form-item
       field="keyword"
-      :label="$t('stepForm.form.label.keyword')"
+      :label="$t('footage.form.keyword')"
       :rules="[
-        { required: true, message: $t('stepForm.form.error.keyword.required') },
+        { required: true, message: $t('footage.form.error.keyword.required') },
       ]"
     >
       <a-select
         v-model="formData.keyword"
-        :placeholder="$t('stepForm.placeholder.keyword')"
+        :placeholder="$t('footage.placeholder.keyword')"
         multiple
       >
         <a-option>今日头条</a-option>
@@ -54,41 +73,41 @@
     </a-form-item>
     <a-form-item
       field="pushNotify"
-      :label="$t('stepForm.form.label.pushNotify')"
+      :label="$t('footage.form.pushNotify')"
       :rules="[{ required: true }]"
     >
       <a-switch v-model="formData.pushNotify" />
     </a-form-item>
     <a-form-item
       field="advertisingContent"
-      :label="$t('stepForm.form.label.advertisingContent')"
+      :label="$t('footage.form.advertisingContent')"
       :rules="[
         {
           required: true,
-          message: $t('stepForm.form.error.advertisingContent.required'),
+          message: $t('footage.form.error.advertisingContent.required'),
         },
         {
           maxLength: 200,
-          message: $t('stepForm.form.error.advertisingContent.maxLength'),
+          message: $t('footage.form.error.advertisingContent.maxLength'),
         },
       ]"
       row-class="keep-margin"
     >
       <a-textarea
         v-model="formData.advertisingContent"
-        :placeholder="$t('stepForm.placeholder.advertisingContent')"
+        :placeholder="$t('footage.placeholder.advertisingContent')"
       />
     </a-form-item>
     <a-form-item>
       <!-- <a-button type="primary" @click="onNextClick">
-        {{ $t('stepForm.button.next') }}
+        {{ $t('footage.button.next') }}
       </a-button> -->
       <a-space>
         <a-button type="secondary" @click="goPrev">
-          {{ $t('stepForm.button.prev') }}
+          {{ $t('footage.button.prev') }}
         </a-button>
         <a-button type="primary" @click="onNextClick">
-          {{ $t('stepForm.button.next') }}
+          {{ $t('footage.button.next') }}
         </a-button>
       </a-space>
     </a-form-item>
@@ -104,6 +123,7 @@
 
   const formRef = ref<FormInstance>();
   const formData = ref<ChannelInfoModel>({
+    footageName: '',
     advertisingSource: '',
     advertisingMedia: '',
     keyword: [],

@@ -1,12 +1,11 @@
 import axios from 'axios';
 
 export interface BaseInfoModel {
-  footageName: string;
   channelType: string;
   promotionTime: string[];
-  promoteLink: string;
 }
 export interface ChannelInfoModel {
+  footageName: string;
   advertisingSource: string;
   advertisingMedia: string;
   keyword: string[];

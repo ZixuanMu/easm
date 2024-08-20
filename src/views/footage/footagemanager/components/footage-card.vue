@@ -59,7 +59,7 @@ import CardWrap from './card-wrap.vue';
 const { loading, setLoading } = useLoading(true);
 const basePagination: Pagination = {
   page: 1,
-  page_size: 12,
+  pageSize: 12,
 };
 const renderData = ref<FootageRecord[]>([]);
   const pagination = reactive({
