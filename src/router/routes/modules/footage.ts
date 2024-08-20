@@ -6,7 +6,7 @@ const FOOTAGE: AppRouteRecordRaw = {
   name: 'Footage',
   component: DEFAULT_LAYOUT,
   meta: {
-    locale: 'menu.footageList',
+    locale: 'menu.footage',
     requiresAuth: true,
     icon: 'icon-storage',
     order: 4,

@@ -24,7 +24,7 @@ export default {
   'menu.training': '培训管理',
   'menu.task': '任务管理',
   'menu.reporter': '报告',
-  'menu.footageList': '素材仓库',
+  'menu.footage': '素材仓库',
   'menu.footageList.footagemanager': '素材管理',
   'menu.footageList.labelmanager': '标签管理',
   'menu.user': '用户管理',

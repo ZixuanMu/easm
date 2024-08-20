@@ -1,5 +1,5 @@
 export default {
-  'menu.footageList.footageList': '素材列表',
+  'menu.footage.footageList': '素材列表',
   'footageList.tab.title.all': '全部',
   'footageList.tab.title.content': '内容质检',
   'footageList.tab.title.service': '开通服务',

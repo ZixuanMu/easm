@@ -1,10 +1,10 @@
 <template>
   <div class="container">
-    <Breadcrumb :items="['menu.form', 'menu.form.step']" />
+    <Breadcrumb :items="['menu.footage', 'footage.step.title']" />
     <a-spin :loading="loading" style="width: 100%">
       <a-card class="general-card">
         <template #title>
-          {{ $t('stepForm.step.title') }}
+          {{ $t('footage.step.title') }}
         </template>
         <div class="wrapper">
           <a-steps
@@ -13,14 +13,14 @@
             line-less
             class="steps"
           >
-            <a-step :description="$t('stepForm.step.subTitle.baseInfo')">
-              {{ $t('stepForm.step.title.baseInfo') }}
+            <a-step :description="$t('footage.step.subTitle.baseInfo')">
+              {{ $t('footage.step.title.baseInfo') }}
             </a-step>
-            <a-step :description="$t('stepForm.step.subTitle.channel')">
-              {{ $t('stepForm.step.title.channel') }}
+            <a-step :description="$t('footage.step.subTitle.channel')">
+              {{ $t('footage.step.title.channel') }}
             </a-step>
-            <a-step :description="$t('stepForm.step.subTitle.finish')">
-              {{ $t('stepForm.step.title.finish') }}
+            <a-step :description="$t('footage.step.subTitle.finish')">
+              {{ $t('footage.step.title.finish') }}
             </a-step>
           </a-steps>
           <keep-alive>

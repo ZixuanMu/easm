@@ -3,10 +3,7 @@
     <template #cover>
       <div
         class="image-container"
-        :style="{
-          height: '100%',
-          overflow: 'hidden',
-        }"
+
       >
         <img
         class="img"
@@ -19,31 +16,44 @@
 
     <a-card-meta  
       class="content-wrap"
-      :style="{
-        width: '100%',
-        height:'300px'
-        }"
-      :title=title>
+      >
+      <template #title>
+        <a-typography-title :heading="6"  class="content-title">
+      {{ title }}
+    </a-typography-title>
+      </template>
       <template #description>
-        Card content
+        <a-typography-text type="secondary" :style="{ margin: '15px'}">
+      {{ category }}
+    </a-typography-text>
+
+      <div class="hidden-content">
+        <a-typography-text type="secondary" :style="{ margin: '15px'}">
+      创建时间
+    </a-typography-text>
+
+    <a-button type="outline" class="view-button">查看详情</a-button>
+      </div>
       </template>
     </a-card-meta>
   </a-card>
 </template>
 
 <script lang="ts" setup>
+import { IconRight } from '@arco-design/web-vue/es/icon';
+
 const props = defineProps({
   imageSrc: {
     type: String,
-    default: '',
+    default: '素材缩略图',
   },
   title: {
     type: String,
-    default: '',
+    default: '素材标题',
   },
   category: {
     type: String,
-    default: '',
+    default: '素材种类',
   },
 });
 </script>
@@ -64,7 +74,7 @@ const props = defineProps({
     }
 
     .content-wrap {
-      transform: translateY(-80%);
+      transform: translateY(-100px);
     }
   }
 
@@ -76,7 +86,7 @@ const props = defineProps({
 .image-container {
   position: relative;
   overflow: hidden;
-
+  width: '100%';
   &::before {
     content: "";
     position: absolute;
@@ -101,6 +111,8 @@ const props = defineProps({
 .content-wrap {
   position: absolute;
   width: 100%;
+  height: 250px;
+  margin-top:-15px;
   margin-left: -16px;
   transition: transform 0.3s ease;
   background-color: white;
@@ -112,5 +124,28 @@ const props = defineProps({
     margin-bottom: 8px;
   }
 }
-
+.hidden-content{
+  position: absolute;
+  width: 100%;
+  height: 250px;
+  margin-top:15px;
+}
+.view-button{
+  width:190px;
+  margin:15px;
+}
+.content-title{
+  margin-top: 5px;
+  margin-left: 15px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  height: 40px; /* 固定高度 */
+  line-height: 20px; /* 每行的高度 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* 限制最多两行 */
+  display: flex;
+  align-items: center; /* 一行时垂直居中 */
+}
 </style>

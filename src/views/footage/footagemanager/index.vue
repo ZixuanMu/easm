@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-    <Breadcrumb :items="['menu.footageList', 'menu.footageList.footageList']" />
+    <Breadcrumb :items="['menu.footage', 'menu.footage.footageList']" />
     <a-row :gutter="20" align="stretch">
       <a-col :span="24">
-        <a-card class="general-card" :title="$t('menu.footageList.footageList')">
+        <a-card class="general-card" :title="$t('menu.footage.footageList')">
           <a-row justify="space-between">
             <a-col :span="24">
               <a-tabs :default-active-tab="1" type="rounded">
@@ -43,6 +43,7 @@
 <style scoped lang="less">
   .container {
     padding: 0 20px 20px 20px;
+    margin: 0 auto; /* 让容器水平居中 */
     :deep(.arco-list-content) {
       overflow-x: hidden;
     }

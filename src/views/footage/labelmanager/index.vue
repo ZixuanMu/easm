@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <Breadcrumb :items="['menu.labelList', 'menu.labelList.labelmanager']" />
-    <a-card class="general-card" :title="$t('menu.labelList.labelmanager')">
+    <Breadcrumb :items="['menu.footage', 'menu.footage.labelmanager']" />
+    <a-card class="general-card" :title="$t('menu.footage.labelmanager')">
       <a-row>
         <a-col :flex="1">
           <a-form
@@ -17,76 +17,28 @@
                   :label="$t('labelmanager.form.labelname')"
                 >
                   <a-input
-                    v-model="formModel.number"
+                    v-model="formModel.name"
                     :placeholder="$t('labelmanager.form.labelname.placeholder')"
                   />
                 </a-form-item>
               </a-col>
-              <a-col :span="8">
-                <a-form-item
-                  field="labeltype"
-                  :label="$t('labelmanager.form.labeltype')"
-                >
-                  <a-input
-                    v-model="formModel.name"
-                    :placeholder="$t('labelmanager.form.labeltype.placeholder')"
-                  />
-                </a-form-item>
-              </a-col>
-              <a-col :span="8">
-                <a-form-item
-                  field="usergroup"
-                  :label="$t('labelmanager.form.usergroup')"
-                >
-                  <a-select
-                    v-model="formModel.contentType"
-                    :options="contentTypeOptions"
-                    :placeholder="$t('labelmanager.form.selectDefault')"
-                  />
-                </a-form-item>
-              </a-col>
-              <a-col :span="8">
-                <a-form-item
-                  field="labelstatus"
-                  :label="$t('labelmanager.form.labelstatus')"
-                >
-                  <a-select
-                    v-model="formModel.status"
-                    :options="statusOptions"
-                    :placeholder="$t('labelmanager.form.selectDefault')"
-                  />
-                </a-form-item>
-              </a-col>
-              <a-col :span="8">
-                <a-form-item
-                  field="labelcreatetime"
-                  :label="$t('labelmanager.form.labelcreatetime')"
-                >
-                  <a-range-picker
-                    v-model="formModel.createdTime"
-                    style="width: 100%"
-                  />
-                </a-form-item>
-              </a-col>
-            </a-row>
-          </a-form>
-        </a-col>
-        <a-divider style="height: 84px" direction="vertical" />
-        <a-col :flex="'86px'" style="text-align: right">
-          <a-space direction="vertical" :size="18">
-            <a-button type="primary" @click="search">
-              <template #icon>
-                <icon-search />
-              </template>
-              {{ $t('labelmanager.form.search') }}
-            </a-button>
-            <a-button @click="reset">
+              <a-col :span="11"></a-col>
+            <a-col :span="5" style="text-align: right">
+              <a-button type="primary" @click="search" class="search-button">
+                <template #icon>
+                  <icon-search />
+                </template>
+                {{ $t('labelmanager.form.search') }}
+              </a-button>
+            <a-button @click="reset" class="search-button">
               <template #icon>
                 <icon-refresh />
               </template>
               {{ $t('labelmanager.form.reset') }}
             </a-button>
-          </a-space>
+          </a-col>
+          </a-row>
+          </a-form>
         </a-col>
       </a-row>
       <a-divider style="margin-top: 0" />
@@ -99,25 +51,12 @@
               </template>
               {{ $t('labelmanager.operation.create') }}
             </a-button>
-            <a-upload action="/">
-              <template #upload-button>
-                <a-button>
-                  {{ $t('labelmanager.operation.import') }}
-                </a-button>
-              </template>
-            </a-upload>
           </a-space>
         </a-col>
         <a-col
           :span="12"
           style="display: flex; align-items: center; justify-content: end"
         >
-          <a-button>
-            <template #icon>
-              <icon-download />
-            </template>
-            {{ $t('labelmanager.operation.download') }}
-          </a-button>
           <a-tooltip :content="$t('labelmanager.actions.refresh')">
             <div class="action-icon" @click="search">
               <icon-refresh size="18" />
@@ -185,61 +124,92 @@
         @page-change="onPageChange"
       >
         <template #index="{ rowIndex }">
-          {{ rowIndex + 1 + (pagination.current - 1) * pagination.pageSize }}
+          {{ rowIndex + 1 + (pagination.page-1) * pagination.page_size }}
         </template>
         <template #status="{ record }">
           <span v-if="record.status === 'offline'" class="circle"></span>
           <span v-else class="circle pass"></span>
           {{ $t(`searchTable.form.status.${record.status}`) }}
         </template>
-        <template #operations>
-          <a-button type="text" size="small">
-            {{ $t('labelmanager.columns.operations.view') }}
+        <template #operations="{ record }">
+          <a-button type="text" size="small" @click="edit(record.id)">
+            {{ $t('labelmanager.columns.operations.edit') }}
+          </a-button>
+          <a-button type="text" size="small" @click="confirmDelete(record.id)">
+            {{ $t('labelmanager.columns.operations.delete') }}
           </a-button>
         </template>
       </a-table>
     </a-card>
   </div>
+
+  <a-modal v-model:visible="editVisible" @ok="submitEditForm" @cancel="handleCancel">
+  <template #title>
+    {{ $t('labelmanager.edit.title') }}
+  </template>
+  <a-form :model="currentLabel">
+    <a-form-item
+      field="name"
+      :label="$t('labelmanager.create.formItem')"
+      :rules="[{ required: true, message: $t('labelmanager.create.formItem.required') }]"
+    >
+      <a-input v-model="currentLabel.name" :style="{ width: '320px' }" :placeholder="$t('labelmanager.create.placeholder')" :max-length="10" allow-clear show-word-limit />
+    </a-form-item>
+  </a-form>
+</a-modal>
+
+  <a-modal v-model:visible="createVisible" @ok="submitForm" @cancel="handleCancel">
+    <template #title>
+      {{ $t('labelmanager.create.title') }}
+    </template>
+    <a-form :model="labelForm">
+  <a-form-item field="name" :label="$t('labelmanager.create.formItem')"  :rules="[
+    { required: true, message: $t('labelmanager.create.formItem.required')}
+  ]"
+        >
+    <a-input v-model="labelForm.name" :style="{width:'320px'}" :placeholder="$t('labelmanager.create.placeholder')" :max-length="10" allow-clear show-word-limit />
+  </a-form-item>
+    </a-form>
+  </a-modal>
 </template>
 
 <script lang="ts" setup>
 import { computed, ref, reactive, watch, nextTick } from 'vue';
 import { useI18n } from 'vue-i18n';
 import useLoading from '@/hooks/loading';
-import { queryPolicyList, PolicyRecord, PolicyParams } from '@/api/list';
+import { createLabelForm, deleteLabelForm, PolicyRecord, PolicyParams, labelPolicyList,putLabel  } from '@/api/footage/labelManager';
 import { Pagination } from '@/types/global';
-import type { SelectOptionData } from '@arco-design/web-vue/es/select/interface';
 import type { TableColumnData } from '@arco-design/web-vue/es/table/interface';
 import cloneDeep from 'lodash/cloneDeep';
 import Sortable from 'sortablejs';
 import { useRouter } from 'vue-router';
+import { Message, Modal } from '@arco-design/web-vue';
 
-const router =useRouter();
+const router = useRouter();
 type SizeProps = 'mini' | 'small' | 'medium' | 'large';
 type Column = TableColumnData & { checked?: true };
 
 const generateFormModel = () => {
   return {
-    number: '',
     name: '',
-    contentType: '',
-    filterType: '',
-    createdTime: [],
-    status: '',
   };
 };
+const editVisible = ref(false);  // 控制编辑对话框的显示
+const currentLabel = ref({ id: 0, name: '' });  // 存储当前编辑的标签信息
+const labelForm = ref({ name: '' });
 const { loading, setLoading } = useLoading(true);
 const { t } = useI18n();
 const renderData = ref<PolicyRecord[]>([]);
 const formModel = ref(generateFormModel());
 const cloneColumns = ref<Column[]>([]);
 const showColumns = ref<Column[]>([]);
+const createVisible = ref(false);
 
 const size = ref<SizeProps>('medium');
 
 const basePagination: Pagination = {
-  current: 1,
-  pageSize: 20,
+  page: 1,
+  page_size: 10,
 };
 const pagination = reactive({
   ...basePagination,
@@ -268,70 +238,32 @@ const columns = computed<TableColumnData[]>(() => [
     title: t('labelmanager.columns.index'),
     dataIndex: 'index',
     slotName: 'index',
+    width: 200, // 固定宽度的索引列
+    align: 'center', // 使内容水平居中
   },
   {
     title: t('labelmanager.columns.name'),
     dataIndex: 'name',
-  },
-  {
-    title: t('labelmanager.columns.usergroup'),
-    dataIndex: 'usergroup',
-  },
-  {
-    title: t('labelmanager.columns.status'),
-    dataIndex: 'status',
-    slotName: 'status',
-  },
-  {
-    title: t('labelmanager.columns.createdTime'),
-    dataIndex: 'createdTime',
-  },
-  {
-    title: t('labelmanager.columns.completionRate'),
-    dataIndex: 'completionRate',
+    flex: 1, // 自适应宽度的name列
+    align: 'center', // 使内容水平居中
   },
   {
     title: t('labelmanager.columns.operations'),
     dataIndex: 'operations',
     slotName: 'operations',
+    width: 200, // 固定宽度的操作列
+    align: 'center', // 使内容水平居中
   },
 ]);
 
-const contentTypeOptions = computed<SelectOptionData[]>(() => [
-  {
-    label: t('labelmanager.form.contentType.img'),
-    value: 'img',
-  },
-  {
-    label: t('labelmanager.form.contentType.horizontalVideo'),
-    value: 'horizontalVideo',
-  },
-  {
-    label: t('labelmanager.form.contentType.verticalVideo'),
-    value: 'verticalVideo',
-  },
-]);
-const statusOptions = computed<SelectOptionData[]>(() => [
-  {
-    label: t('labelmanager.form.status.online'),
-    value: 'online',
-  },
-  {
-    label: t('labelmanager.form.status.offline'),
-    value: 'offline',
-  },
-  {
-    label: t('labelmanager.form.status.online'),
-    value: 'online',
-  },
-]);
-const fetchData = async (params: PolicyParams = { current: 1, pageSize: 20 }) => {
+const fetchData = async (params: PolicyParams = { page: 1, page_size: 10 }) => {
   setLoading(true);
   try {
-    const { data } = await queryPolicyList(params);
-    renderData.value = data.list;
-    pagination.current = params.current;
-    pagination.total = data.total;
+    const res = await labelPolicyList(params) as any;
+    renderData.value = res.data;
+    pagination.page = params.page;
+    pagination.total = res.total;
+    console.log(res.total);
   } catch (err) {
     // you can report use errorHandler or other
   } finally {
@@ -345,17 +277,37 @@ const search = () => {
     ...formModel.value,
   } as unknown as PolicyParams);
 };
-const onPageChange = (current: number) => {
-  fetchData({ ...basePagination, current });
+
+const onPageChange = (page: number) => {
+  fetchData({ ...basePagination, page });
 };
 
 fetchData();
 
-const create =() =>{
+const submitForm = () => {
+  createLabelForm(labelForm.value.name);
+  createVisible.value = false;
+};
+const submitEditForm = () => {
+  putLabel(currentLabel.value.id, currentLabel.value.name).then(() => {
+    Message.success({
+      content: "编辑成功",
+      duration: 5 * 1000,
+    });
+    editVisible.value = false;  // 关闭对话框
+    search();  // 刷新列表
+  }).catch((error) => {
+    console.error('Error updating label:', error);
+  });
+};
+const create = () => {
+  createVisible.value = true;
+};
 
-router.push('/label/labelcreate');
-
-}
+const handleCancel = () => {
+  editVisible.value =false;
+  createVisible.value = false;
+};
 
 const reset = () => {
   formModel.value = generateFormModel();
@@ -390,7 +342,6 @@ const exchangeArray = <T extends Array<any>>(
 ): T => {
   const newArray = isDeep ? cloneDeep(array) : array;
   if (beforeIdx > -1 && newIdx > -1) {
-    // 先替换后面的，然后拿到替换的结果替换前面的
     newArray.splice(
       beforeIdx,
       1,
@@ -413,6 +364,33 @@ const popupVisibleChange = (val: boolean) => {
       });
     });
   }
+};
+const edit = (id: number) => {
+  const label = renderData.value.find(item => item.id === id);
+  if (label) {
+    currentLabel.value = { ...label };  // 深拷贝当前编辑的标签信息
+    editVisible.value = true;  // 显示编辑对话框
+  }
+};
+
+const confirmDelete = (id: number) => {
+  Modal.confirm({
+    title: '确认删除',
+    content: '您确定要删除这个标签吗？',
+    okText: '确认',
+    cancelText: '取消',
+    onOk: () => {
+      deleteLabelForm(id).then(() => {
+        Message.success({
+          content: "删除成功",
+          duration: 5 * 1000,  // 消息显示 5 秒钟
+        });
+        search(); // 删除后刷新列表
+      }).catch((error) => {
+        console.error('Error deleting label:', error);
+      });
+    }
+  });
 };
 
 watch(
@@ -448,6 +426,9 @@ export default {
 .action-icon {
   margin-left: 12px;
   cursor: pointer;
+}
+.search-button {
+  margin: 3px;
 }
 .active {
   color: #0960bd;
