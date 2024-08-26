@@ -6,7 +6,7 @@
       :subtitle="$t('footage.success.subTitle')"
     />
     <a-space :size="16">
-      <a-button key="view" type="primary">
+      <a-button key="view" type="primary" @click="router.push('/footage/footagemanager')">
         {{ $t('footage.button.view') }}
       </a-button>
       <a-button key="again" type="secondary" @click="oneMore">
@@ -26,6 +26,8 @@
 </template>
 
 <script lang="ts" setup>
+import router from '@/router';
+
   const emits = defineEmits(['changeStep']);
   const oneMore = () => {
     emits('changeStep', 1);

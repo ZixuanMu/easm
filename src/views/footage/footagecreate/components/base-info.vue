@@ -31,13 +31,13 @@
       row-class="keep-margin"
     >
       <a-select  
-        v-model="formData.label" 
+        v-model="labelsName" 
         :placeholder="$t('footage.placeholder.footageLabel')" 
         allow-create 
         dropdown-scroll 
         allow-search 
         multiple
-        @change="handleLabelChange(formData.label)"
+        @change="handleLabelChange(labelsName)"
       >
         <a-option v-for="item of labeldata" :key="item.id" :value="item.name" :label="item.name" />
       </a-select>
@@ -60,6 +60,13 @@ import { BaseInfoModel } from '@/api/footage/createNewFootage';
 import { labelPolicyList, PolicyParams, PolicyRecord, createLabelForm } from '@/api/footage/labelManager';
 
 const labeldata = ref<PolicyRecord[]>([]);
+const emits = defineEmits(['changeStep']);
+const formRef = ref<FormInstance>();
+const labelsName = ref<string[]>([]);
+const formData = ref<BaseInfoModel>({
+  footageType: 0,
+  labels: [],
+});
 
 const fetchData = async (params: PolicyParams = { page: 1, pageSize: 6000 }) => {
   try {
@@ -71,25 +78,25 @@ const fetchData = async (params: PolicyParams = { page: 1, pageSize: 6000 }) => 
 };
 fetchData();
 
-const handleLabelChange = async (newLabels:string[]) => {
+const handleLabelChange = async (newLabels: string[]) => {
   // 检查新标签是否已经存在于 labeldata 中
   const newLabelNames = newLabels.filter(label => !labeldata.value.some(existing => existing.name === label));
 
   const createdLabels = await Promise.all(
-      newLabelNames.map(async (newLabelName) => {
-        const newLabel = await createLabelForm(newLabelName);
-        console.log(newLabel)
-        fetchData();
-      })
-    );
+    newLabelNames.map(async (newLabelName) => {
+      const newLabel = await createLabelForm(newLabelName);
+      console.log(newLabel);
+      fetchData();
+    })
+  );
+
+  // 更新 formData 中的 labels
+  formData.value.labels = newLabels.map(label => {
+    const foundLabel = labeldata.value.find(item => item.name === label);
+    return foundLabel ? foundLabel.id : null;
+  }).filter(id => id !== null) as number[];
 };
 
-const emits = defineEmits(['changeStep']);
-const formRef = ref<FormInstance>();
-const formData = ref<BaseInfoModel>({
-  footageType: 0,
-  label: [],
-});
 
 const onNextClick = async () => {
   const res = await formRef.value?.validate();

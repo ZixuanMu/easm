@@ -1,7 +1,7 @@
 export default {
   'menu.form.step': '分步表单',
   'footage.step.title': '创建素材',
-  'footage.step.title.baseInfo': '选择基本信息',
+  'footage.step.title.baseInfo': '基本信息',
   'footage.step.subTitle.baseInfo': '创建素材',
 
   'footage.form.footageType': '素材类型',
@@ -12,13 +12,28 @@ export default {
   'footage.form.label': '素材标签',
   'footage.placeholder.footageLabel': '请选择或输入后按回车创建',
   'footage.form.tip.label': '按回车创建标签',
+  'footage.step.title.articleInfo': '创建文章',
+  'footage.step.articleInfo': '输入文章详情',
+  'footage.step.videoInfo': '输入视频详情',
+  'footage.step.examInfo': '输入考试详情',
+  'footage.form.title': '素材标题',
+  'footage.placeholder.title': '请输入素材标题',
+  'footage.form.error.title.required': '请输入素材标题',
+  'footage.form.error.title.maxLength': '素材标题不能超过25个字符',
+  'footage.form.content': '文章内容',
+    
+  'footage.form.error.content.required': '请输入文章内容',
+  'footage.form.error.content.maxLength': '文章内容不能超过2000个字符',
+  'footage.form.error.content.pattern': '请输入有效的文章内容',
+  'footage.placeholder.content': '请输入文章内容',
+
 
   'footage.button.next': '下一步',
   'footage.button.prev': '上一步',
   'footage.button.submit': '提交',
 
 
-  'footage.step.subTitle.footage': '输入详细的渠道信息',
+
   'footage.step.title.finish': '完成创建',
   'footage.step.subTitle.finish': '创建成功',
   'footage.success.title': '提交成功',

@@ -29,7 +29,7 @@ export interface FootageListRes {
 }
 
 // 获取标签列表的函数
-export function labelPolicyList(params: FootageParams) {
+export function FootagePolicyList(params: FootageParams) {
   return axios.get<FootageListRes>('/api/admin/footage', {
     params,
     paramsSerializer: qs.stringify,  // 直接传递qs.stringify函数

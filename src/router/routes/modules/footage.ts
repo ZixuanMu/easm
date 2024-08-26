@@ -43,6 +43,16 @@ const FOOTAGE: AppRouteRecordRaw = {
         roles: ['admin'],
       },
     },
+    {
+      path: '/footage/footageview',
+      name: 'Footageview',
+      component: () => import('@/views/footage/footageview/index.vue'),
+      meta: {
+        locale: 'menu.footageList.footageview',
+        requiresAuth: true,
+        roles: ['admin'],
+    },
+  }
   ],
 };
 

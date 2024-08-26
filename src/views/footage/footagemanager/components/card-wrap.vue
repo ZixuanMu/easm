@@ -32,7 +32,7 @@
       创建时间
     </a-typography-text>
 
-    <a-button type="outline" class="view-button">查看详情</a-button>
+    <a-button type="outline" class="view-button" @click="handleViewDetail">查看详情</a-button>
       </div>
       </template>
     </a-card-meta>
@@ -56,6 +56,9 @@ const props = defineProps({
     default: '素材种类',
   },
 });
+const handleViewDetail = () => {
+  console.log('查看详情');
+};
 </script>
 
 <style scoped lang="less">

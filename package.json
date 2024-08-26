@@ -31,6 +31,8 @@
   },
   "dependencies": {
     "@arco-design/web-vue": "^2.44.7",
+    "@ckeditor/ckeditor5-build-classic": "^43.0.0",
+    "@ckeditor/ckeditor5-vue": "^7.0.0",
     "@vueuse/core": "^9.3.0",
     "axios": "^0.24.0",
     "dayjs": "^1.11.5",

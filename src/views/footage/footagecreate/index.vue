@@ -16,8 +16,8 @@
             <a-step :description="$t('footage.step.subTitle.baseInfo')">
               {{ $t('footage.step.title.baseInfo') }}
             </a-step>
-            <a-step :description="$t('footage.step.subTitle.channel')">
-              {{ $t('footage.step.title.channel') }}
+            <a-step :description="$t('footage.step.articleInfo')">
+              {{ $t('footage.step.title.articleInfo') }}
             </a-step>
             <a-step :description="$t('footage.step.subTitle.finish')">
               {{ $t('footage.step.title.finish') }}
@@ -26,7 +26,7 @@
           <keep-alive>
             <BaseInfo v-if="step === 1" @change-step="changeStep" />
             
-            <ChannelInfo v-else-if="step === 2" @change-step="changeStep" />
+            <ArticleInfo v-else-if="step === 2" @change-step="changeStep" />
             <Success v-else-if="step === 3" @change-step="changeStep" />
           </keep-alive>
         </div>
@@ -39,24 +39,24 @@
   import { ref } from 'vue';
   import useLoading from '@/hooks/loading';
   import {
-    submitChannelForm,
+    submitfootageForm,
     BaseInfoModel,
-    ChannelInfoModel,
-    UnitChannelModel,
-  } from '@/api/form';
+    ArticleInfoModel,
+    UnitfootageModel,
+  } from '@/api/footage/createNewFootage';
   import BaseInfo from './components/base-info.vue';
-  import ChannelInfo from './components/channel-info.vue';
+  import ArticleInfo from './components/article-info.vue';
   import Success from './components/success.vue';
 
   const { loading, setLoading } = useLoading(false);
   const step = ref(1);
-  const submitModel = ref<UnitChannelModel>({} as UnitChannelModel);
+  const submitModel = ref<UnitfootageModel>({} as UnitfootageModel);
   const submitForm = async () => {
     setLoading(true);
     try {
-      await submitChannelForm(submitModel.value); // The mock api default success
+      await submitfootageForm(submitModel.value); // The mock api default success
       step.value = 3;
-      submitModel.value = {} as UnitChannelModel; // init
+      submitModel.value = {} as UnitfootageModel; // init
     } catch (err) {
       // you can report use errorHandler or other
     } finally {
@@ -65,7 +65,7 @@
   };
   const changeStep = (
     direction: string | number,
-    model: BaseInfoModel | ChannelInfoModel
+    model: BaseInfoModel | ArticleInfoModel
   ) => {
     if (typeof direction === 'number') {
       step.value = direction;
