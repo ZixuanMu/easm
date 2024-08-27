@@ -50,6 +50,7 @@ const FOOTAGE: AppRouteRecordRaw = {
       meta: {
         locale: 'menu.footageList.footageview',
         requiresAuth: true,
+        hideInMenu:true,
         roles: ['admin'],
     },
   }

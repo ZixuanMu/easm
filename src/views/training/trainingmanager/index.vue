@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <Breadcrumb :items="['menu.footageList', 'menu.footageList.searchTable']" />
-    <a-card class="general-card" :title="$t('menu.footageList.searchTable')">
+    <Breadcrumb :items="['menu.trainingList', 'menu.trainingList.searchTable']" />
+    <a-card class="general-card" :title="$t('menu.trainingList.searchTable')">
       <a-row>
         <a-col :flex="1">
           <a-form
@@ -14,50 +14,50 @@
               <a-col :span="8">
                 <a-form-item
                   field="number"
-                  :label="$t('searchTable.form.number')"
+                  :label="$t('trainingTableform.number')"
                 >
                   <a-input
                     v-model="formModel.number"
-                    :placeholder="$t('searchTable.form.number.placeholder')"
+                    :placeholder="$t('trainingTableform.number.placeholder')"
                   />
                 </a-form-item>
               </a-col>
               <a-col :span="8">
-                <a-form-item field="name" :label="$t('searchTable.form.name')">
+                <a-form-item field="name" :label="$t('trainingTableform.name')">
                   <a-input
                     v-model="formModel.name"
-                    :placeholder="$t('searchTable.form.name.placeholder')"
+                    :placeholder="$t('trainingTableform.name.placeholder')"
                   />
                 </a-form-item>
               </a-col>
               <a-col :span="8">
                 <a-form-item
                   field="contentType"
-                  :label="$t('searchTable.form.contentType')"
+                  :label="$t('trainingTableform.contentType')"
                 >
                   <a-select
                     v-model="formModel.contentType"
                     :options="contentTypeOptions"
-                    :placeholder="$t('searchTable.form.selectDefault')"
+                    :placeholder="$t('trainingTableform.selectDefault')"
                   />
                 </a-form-item>
               </a-col>
               <a-col :span="8">
                 <a-form-item
                   field="filterType"
-                  :label="$t('searchTable.form.filterType')"
+                  :label="$t('trainingTableform.filterType')"
                 >
                   <a-select
                     v-model="formModel.filterType"
                     :options="filterTypeOptions"
-                    :placeholder="$t('searchTable.form.selectDefault')"
+                    :placeholder="$t('trainingTableform.selectDefault')"
                   />
                 </a-form-item>
               </a-col>
               <a-col :span="8">
                 <a-form-item
                   field="createdTime"
-                  :label="$t('searchTable.form.createdTime')"
+                  :label="$t('trainingTableform.createdTime')"
                 >
                   <a-range-picker
                     v-model="formModel.createdTime"
@@ -68,12 +68,12 @@
               <a-col :span="8">
                 <a-form-item
                   field="status"
-                  :label="$t('searchTable.form.status')"
+                  :label="$t('trainingTableform.status')"
                 >
                   <a-select
                     v-model="formModel.status"
                     :options="statusOptions"
-                    :placeholder="$t('searchTable.form.selectDefault')"
+                    :placeholder="$t('trainingTableform.selectDefault')"
                   />
                 </a-form-item>
               </a-col>
@@ -87,13 +87,13 @@
               <template #icon>
                 <icon-search />
               </template>
-              {{ $t('searchTable.form.search') }}
+              {{ $t('trainingTableform.search') }}
             </a-button>
             <a-button @click="reset">
               <template #icon>
                 <icon-refresh />
               </template>
-              {{ $t('searchTable.form.reset') }}
+              {{ $t('trainingTableform.reset') }}
             </a-button>
           </a-space>
         </a-col>
@@ -106,12 +106,12 @@
               <template #icon>
                 <icon-plus />
               </template>
-              {{ $t('searchTable.operation.create') }}
+              {{ $t('trainingTableoperation.create') }}
             </a-button>
             <a-upload action="/">
               <template #upload-button>
                 <a-button>
-                  {{ $t('searchTable.operation.import') }}
+                  {{ $t('trainingTableoperation.import') }}
                 </a-button>
               </template>
             </a-upload>
@@ -125,15 +125,15 @@
             <template #icon>
               <icon-download />
             </template>
-            {{ $t('searchTable.operation.download') }}
+            {{ $t('trainingTableoperation.download') }}
           </a-button>
-          <a-tooltip :content="$t('searchTable.actions.refresh')">
+          <a-tooltip :content="$t('trainingTableactions.refresh')">
             <div class="action-icon" @click="search"
               ><icon-refresh size="18"
             /></div>
           </a-tooltip>
           <a-dropdown @select="handleSelectDensity">
-            <a-tooltip :content="$t('searchTable.actions.density')">
+            <a-tooltip :content="$t('trainingTableactions.density')">
               <div class="action-icon"><icon-line-height size="18" /></div>
             </a-tooltip>
             <template #content>
@@ -147,7 +147,7 @@
               </a-doption>
             </template>
           </a-dropdown>
-          <a-tooltip :content="$t('searchTable.actions.columnSetting')">
+          <a-tooltip :content="$t('trainingTableactions.columnSetting')">
             <a-popover
               trigger="click"
               position="bl"
@@ -194,7 +194,7 @@
         @page-change="onPageChange"
       >
         <template #index="{ rowIndex }">
-          {{ rowIndex + 1 + (pagination.current - 1) * pagination.pageSize }}
+          {{ rowIndex + 1 + (pagination.page - 1) * pagination.pageSize }}
         </template>
         <template #contentType="{ record }">
           <a-space>
@@ -224,20 +224,20 @@
                 src="//p3-armor.byteimg.com/tos-cn-i-49unhts6dw/ea8b09190046da0ea7e070d83c5d1731.svg~tplv-49unhts6dw-image.image"
               />
             </a-avatar>
-            {{ $t(`searchTable.form.contentType.${record.contentType}`) }}
+            {{ $t(`trainingTableform.contentType.${record.contentType}`) }}
           </a-space>
         </template>
         <template #filterType="{ record }">
-          {{ $t(`searchTable.form.filterType.${record.filterType}`) }}
+          {{ $t(`trainingTableform.filterType.${record.filterType}`) }}
         </template>
         <template #status="{ record }">
           <span v-if="record.status === 'offline'" class="circle"></span>
           <span v-else class="circle pass"></span>
-          {{ $t(`searchTable.form.status.${record.status}`) }}
+          {{ $t(`trainingTableform.status.${record.status}`) }}
         </template>
         <template #operations>
           <a-button v-permission="['admin']" type="text" size="small">
-            {{ $t('searchTable.columns.operations.view') }}
+            {{ $t('trainingTablecolumns.operations.view') }}
           </a-button>
         </template>
       </a-table>
@@ -279,7 +279,7 @@
   const size = ref<SizeProps>('medium');
 
   const basePagination: Pagination = {
-    current: 1,
+    page: 1,
     pageSize: 20,
   };
   const pagination = reactive({
@@ -287,95 +287,95 @@
   });
   const densityList = computed(() => [
     {
-      name: t('searchTable.size.mini'),
+      name: t('trainingTablesize.mini'),
       value: 'mini',
     },
     {
-      name: t('searchTable.size.small'),
+      name: t('trainingTablesize.small'),
       value: 'small',
     },
     {
-      name: t('searchTable.size.medium'),
+      name: t('trainingTablesize.medium'),
       value: 'medium',
     },
     {
-      name: t('searchTable.size.large'),
+      name: t('trainingTablesize.large'),
       value: 'large',
     },
   ]);
   const columns = computed<TableColumnData[]>(() => [
     {
-      title: t('searchTable.columns.index'),
+      title: t('trainingTablecolumns.index'),
       dataIndex: 'index',
       slotName: 'index',
     },
     {
-      title: t('searchTable.columns.number'),
+      title: t('trainingTablecolumns.number'),
       dataIndex: 'number',
     },
     {
-      title: t('searchTable.columns.name'),
+      title: t('trainingTablecolumns.name'),
       dataIndex: 'name',
     },
     {
-      title: t('searchTable.columns.contentType'),
+      title: t('trainingTablecolumns.contentType'),
       dataIndex: 'contentType',
       slotName: 'contentType',
     },
     {
-      title: t('searchTable.columns.filterType'),
+      title: t('trainingTablecolumns.filterType'),
       dataIndex: 'filterType',
     },
     {
-      title: t('searchTable.columns.count'),
+      title: t('trainingTablecolumns.count'),
       dataIndex: 'count',
     },
     {
-      title: t('searchTable.columns.createdTime'),
+      title: t('trainingTablecolumns.createdTime'),
       dataIndex: 'createdTime',
     },
     {
-      title: t('searchTable.columns.status'),
+      title: t('trainingTablecolumns.status'),
       dataIndex: 'status',
       slotName: 'status',
     },
     {
-      title: t('searchTable.columns.operations'),
+      title: t('trainingTablecolumns.operations'),
       dataIndex: 'operations',
       slotName: 'operations',
     },
   ]);
   const contentTypeOptions = computed<SelectOptionData[]>(() => [
     {
-      label: t('searchTable.form.contentType.img'),
+      label: t('trainingTableform.contentType.img'),
       value: 'img',
     },
     {
-      label: t('searchTable.form.contentType.horizontalVideo'),
+      label: t('trainingTableform.contentType.horizontalVideo'),
       value: 'horizontalVideo',
     },
     {
-      label: t('searchTable.form.contentType.verticalVideo'),
+      label: t('trainingTableform.contentType.verticalVideo'),
       value: 'verticalVideo',
     },
   ]);
   const filterTypeOptions = computed<SelectOptionData[]>(() => [
     {
-      label: t('searchTable.form.filterType.artificial'),
+      label: t('trainingTableform.filterType.artificial'),
       value: 'artificial',
     },
     {
-      label: t('searchTable.form.filterType.rules'),
+      label: t('trainingTableform.filterType.rules'),
       value: 'rules',
     },
   ]);
   const statusOptions = computed<SelectOptionData[]>(() => [
     {
-      label: t('searchTable.form.status.online'),
+      label: t('trainingTableform.status.online'),
       value: 'online',
     },
     {
-      label: t('searchTable.form.status.offline'),
+      label: t('trainingTableform.status.offline'),
       value: 'offline',
     },
   ]);
@@ -386,7 +386,7 @@
     try {
       const { data } = await queryPolicyList(params);
       renderData.value = data.list;
-      pagination.current = params.current;
+      pagination.page = params.current;
       pagination.total = data.total;
     } catch (err) {
       // you can report use errorHandler or other

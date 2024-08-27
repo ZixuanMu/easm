@@ -9,7 +9,7 @@ const TRAINING: AppRouteRecordRaw = {
     locale: 'menu.training',
     requiresAuth: true,
     icon: 'icon-apps',
-    order: 1,
+    order: 2,
   },
   children: [
     {

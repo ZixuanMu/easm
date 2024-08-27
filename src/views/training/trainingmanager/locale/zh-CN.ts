@@ -1,45 +1,57 @@
 export default {
-  'menu.training.trainingmanager': '培训管理',
-  'searchTable.form.number': '集合编号',
-  'searchTable.form.number.placeholder': '请输入集合编号',
-  'searchTable.form.name': '集合名称',
-  'searchTable.form.name.placeholder': '请输入集合名称',
-  'searchTable.form.contentType': '内容体裁',
-  'searchTable.form.contentType.img': '图文',
-  'searchTable.form.contentType.horizontalVideo': '横版短视频',
-  'searchTable.form.contentType.verticalVideo': '竖版小视频',
-  'searchTable.form.filterType': '筛选方式',
-  'searchTable.form.filterType.artificial': '人工筛选',
-  'searchTable.form.filterType.rules': '规则筛选',
-  'searchTable.form.createdTime': '创建时间',
-  'searchTable.form.status': '状态',
-  'searchTable.form.status.online': '已上线',
-  'searchTable.form.status.offline': '已下线',
-  'searchTable.form.search': '查询',
-  'searchTable.form.reset': '重置',
-  'searchTable.form.selectDefault': '全部',
-  'searchTable.operation.create': '新建',
-  'searchTable.operation.import': '批量导入',
-  'searchTable.operation.download': '下载',
-  // columns
-  'searchTable.columns.index': '#',
-  'searchTable.columns.number': '集合编号',
-  'searchTable.columns.name': '集合名称',
-  'searchTable.columns.contentType': '内容体裁',
-  'searchTable.columns.filterType': '筛选方式',
-  'searchTable.columns.count': '内容量',
-  'searchTable.columns.createdTime': '创建时间',
-  'searchTable.columns.status': '状态',
-  'searchTable.columns.operations': '操作',
-  'searchTable.columns.operations.view': '查看',
 
-  // size
-  'searchTable.size.mini': '迷你',
-  'searchTable.size.small': '偏小',
-  'searchTable.size.medium': '中等',
-  'searchTable.size.large': '偏大',
-  // actions
-  'searchTable.actions.refresh': '刷新',
-  'searchTable.actions.density': '密度',
-  'searchTable.actions.columnSetting': '列设置',
+    "menu": {
+      "trainingList": "培训列表",
+      "trainingList.searchTable": "搜索表格"
+    },
+    "trainingTableform": {
+      "number": "编号",
+      "number.placeholder": "请输入编号",
+      "name": "名称",
+      "name.placeholder": "请输入名称",
+      "contentType": "内容类型",
+      "contentType.img": "图片",
+      "contentType.horizontalVideo": "横版视频",
+      "contentType.verticalVideo": "竖版视频",
+      "filterType": "筛选类型",
+      "filterType.artificial": "人工筛选",
+      "filterType.rules": "规则筛选",
+      "createdTime": "创建时间",
+      "status": "状态",
+      "status.online": "在线",
+      "status.offline": "离线",
+      "selectDefault": "请选择",
+      "search": "搜索",
+      "reset": "重置"
+    },
+    "trainingTableoperation": {
+      "create": "创建",
+      "import": "导入",
+      "download": "下载"
+    },
+    "trainingTableactions": {
+      "refresh": "刷新",
+      "density": "密度",
+      "columnSetting": "列设置"
+    },
+    "trainingTablesize": {
+      "mini": "迷你",
+      "small": "小",
+      "medium": "中",
+      "large": "大"
+    },
+    "trainingTablecolumns": {
+      "index": "序号",
+      "number": "编号",
+      "name": "名称",
+      "contentType": "内容类型",
+      "filterType": "筛选类型",
+      "count": "数量",
+      "createdTime": "创建时间",
+      "status": "状态",
+      "operations": {
+        "view": "查看"
+      }
+    }
+  
 };

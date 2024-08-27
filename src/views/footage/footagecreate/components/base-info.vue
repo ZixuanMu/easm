@@ -6,7 +6,8 @@
     :label-col-props="{ span: 6 }"
     :wrapper-col-props="{ span: 18 }"
   >
-    <a-form-item
+    <a-form-item class="form-item"
+
       field="footageType"
       :label="$t('footage.form.footageType')"
       :rules="[
@@ -25,7 +26,7 @@
         <a-option :value="2">{{ $t('footage.placeholder.footageType.exam') }}</a-option>
       </a-select>
     </a-form-item>
-    <a-form-item
+    <a-form-item class="form-item"
       field="label"
       :label="$t('footage.form.label')"
       row-class="keep-margin"
@@ -45,7 +46,7 @@
         <span>{{ $t('footage.form.tip.label') }}</span>
       </template>
     </a-form-item>
-    <a-form-item>
+    <a-form-item class="form-item">
       <a-button type="primary" @click="onNextClick">
         {{ $t('footage.button.next') }}
       </a-button>
@@ -133,4 +134,7 @@ const onNextClick = async () => {
   .form-content {
     padding: 8px 50px 0 30px;
   }
+  .form-item{
+  margin-left: -8%;
+}
 </style>

@@ -5,8 +5,6 @@ import './message-box';
 
 import '@/views/dashboard/workplace/mock';
 
-import '@/views/user/info/mock';
-import '@/views/user/setting/mock';
 /** simple end */
 
 Mock.setup({

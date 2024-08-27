@@ -9,7 +9,7 @@
         <div class="wrapper">
           <a-steps
             v-model:current="step"
-            style="width: 580px"
+            style="width: 70%"
             line-less
             class="steps"
           >
@@ -23,7 +23,7 @@
               {{ $t('footage.step.title.finish') }}
             </a-step>
           </a-steps>
-          <keep-alive>
+          <keep-alive style="width: 100%;">
             <BaseInfo v-if="step === 1" @change-step="changeStep" />
             
             <ArticleInfo v-else-if="step === 2" @change-step="changeStep" />
@@ -54,6 +54,7 @@
   const submitForm = async () => {
     setLoading(true);
     try {
+      console.log(submitModel.value);
       await submitfootageForm(submitModel.value); // The mock api default success
       step.value = 3;
       submitModel.value = {} as UnitfootageModel; // init

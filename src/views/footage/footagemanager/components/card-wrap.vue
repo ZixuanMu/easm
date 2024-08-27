@@ -28,11 +28,12 @@
     </a-typography-text>
 
       <div class="hidden-content">
-        <a-typography-text type="secondary" :style="{ margin: '15px'}">
+        <!-- <a-typography-text type="secondary" :style="{ margin: '15px'}">
       创建时间
-    </a-typography-text>
+    </a-typography-text> -->
 
     <a-button type="outline" class="view-button" @click="handleViewDetail">查看详情</a-button>
+    <a-button type="outline" status="danger" class="view-button" @click="handleViewDetail">删除素材</a-button>
       </div>
       </template>
     </a-card-meta>
@@ -40,6 +41,7 @@
 </template>
 
 <script lang="ts" setup>
+import router from '@/router';
 import { IconRight } from '@arco-design/web-vue/es/icon';
 
 const props = defineProps({
@@ -58,6 +60,7 @@ const props = defineProps({
 });
 const handleViewDetail = () => {
   console.log('查看详情');
+  router.push('/footage/footageview');
 };
 </script>
 
@@ -135,7 +138,8 @@ const handleViewDetail = () => {
 }
 .view-button{
   width:190px;
-  margin:15px;
+  margin-left:15px;
+  margin-top: 10px;
 }
 .content-title{
   margin-top: 5px;

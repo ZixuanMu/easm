@@ -15,7 +15,7 @@ const PHISHING: AppRouteRecordRaw = {
     {
       path: 'success',
       name: 'Success',
-      component: () => import('@/views/phishing/index.vue'),
+      component: () => import('@/views/not-found/index.vue'),
       meta: {
         locale: 'menu.result.success',
         requiresAuth: true,

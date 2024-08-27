@@ -13,21 +13,21 @@ const USER: AppRouteRecordRaw = {
   },
   children: [
     {
-      path: 'info',
-      name: 'Info',
-      component: () => import('@/views/user/info/index.vue'),
+      path: 'departmentmanager',
+      name: 'Departmentmanager',
+      component: () => import('@/views/user/departmentmanager/index.vue'),
       meta: {
-        locale: 'menu.user.info',
+        locale: 'menu.user.departmentmanager',
         requiresAuth: true,
         roles: ['*'],
       },
     },
     {
-      path: 'setting',
-      name: 'Setting',
-      component: () => import('@/views/user/setting/index.vue'),
+      path: 'employeemanager',
+      name: 'Employeemanager',
+      component: () => import('@/views/user/employeemanager/index.vue'),
       meta: {
-        locale: 'menu.user.setting',
+        locale: 'menu.user.employeemanager',
         requiresAuth: true,
         roles: ['*'],
       },
@@ -40,6 +40,26 @@ const USER: AppRouteRecordRaw = {
         locale: 'menu.user.rolemanager',
         requiresAuth: true,
         roles: ['*'],
+      },
+    },
+    {
+    path: 'groupmanager',
+    name: 'Groupmanager',
+    component: () => import('@/views/user/groupmanager/index.vue'),
+    meta: {
+      locale: 'menu.user.groupmanager',
+      requiresAuth: true,
+      roles: ['*'],
+    },
+  },
+  {
+    path:'loginway',
+    name:'Loginway',
+    component: () => import('@/views/user/loginway/index.vue'), 
+    meta: {
+      locale: 'menu.user.loginway',
+      requiresAuth: false,
+      roles: ['*'],
     },
   }
   ],

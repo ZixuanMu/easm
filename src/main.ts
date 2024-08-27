@@ -14,6 +14,7 @@ import App from './App.vue';
 import '@/assets/style/global.less';
 import '@/api/interceptor';
 
+
 const app = createApp(App);
 
 app.use(ArcoVue, {});
@@ -24,5 +25,4 @@ app.use(store);
 app.use(i18n);
 app.use(globalComponents);
 app.use(directive);
-
 app.mount('#app');

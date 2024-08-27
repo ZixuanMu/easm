@@ -2,6 +2,7 @@ import localeMessageBox from '@/components/message-box/locale/zh-CN';
 import localeLogin from '@/views/login/locale/zh-CN';
 
 import localeWorkplace from '@/views/dashboard/workplace/locale/zh-CN';
+import localeTrainingmanager from '@/views/training/trainingmanager/locale/zh-CN';
 
 import localeTaskmanager from '@/views/task/taskmanager/locale/zh-CN';
 import localeTaskcreate from '@/views/task/taskcreate/locale/zh-CN';
@@ -14,8 +15,7 @@ import locale403 from '@/views/exception/403/locale/zh-CN';
 import locale404 from '@/views/exception/404/locale/zh-CN';
 import locale500 from '@/views/exception/500/locale/zh-CN';
 
-import localeUserInfo from '@/views/user/info/locale/zh-CN';
-import localeUserSetting from '@/views/user/setting/locale/zh-CN';
+
 /** simple end */
 import localeSettings from './zh-CN/settings';
 
@@ -36,6 +36,7 @@ export default {
   'menu.settings': '系统设置',
   'navbar.docs': '文档中心',
   'navbar.action.locale': '切换为中文',
+  ...localeTrainingmanager,
   ...localeTaskcreate,
   ...localeFootage,
   ...localeFootageLabelmanager,
@@ -48,8 +49,7 @@ export default {
   ...locale403,
   ...locale404,
   ...locale500,
-  ...localeUserInfo,
-  ...localeUserSetting,
+
   
   /** simple end */
 };
