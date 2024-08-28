@@ -39,6 +39,6 @@ export default {
   'workplace.dataoverview.numofuser': '用户总数',
   'workplace.dataoverview.numoffootage': '素材总数',
   'workplace.dataoverview.numoftraining': '培训个数',
-  'workplace.dataoverview.percentageoftraining': '培训完成比例',
+  'workplace.dataoverview.percentageoftraining': '培训完成率',
   'multiDAnalysis.card.title.contentTypeDistribution':'素材种类',
 };

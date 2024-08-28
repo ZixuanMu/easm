@@ -13,6 +13,7 @@
             <a-row :gutter="16">
               <a-col :span="8">
                 <a-form-item
+                  label-col-flex="60px"
                   field="taskname"
                   :label="$t('taskmanager.form.taskname')"
                 >
@@ -24,6 +25,7 @@
               </a-col>
               <a-col :span="8">
                 <a-form-item
+                  label-col-flex="60px"
                   field="tasktype"
                   :label="$t('taskmanager.form.tasktype')"
                 >
@@ -35,6 +37,7 @@
               </a-col>
               <a-col :span="8">
                 <a-form-item
+                  label-col-flex="60px"
                   field="usergroup"
                   :label="$t('taskmanager.form.usergroup')"
                 >
@@ -47,6 +50,7 @@
               </a-col>
               <a-col :span="8">
                 <a-form-item
+                  label-col-flex="60px"
                   field="taskstatus"
                   :label="$t('taskmanager.form.taskstatus')"
                 >
@@ -57,8 +61,9 @@
                   />
                 </a-form-item>
               </a-col>
-              <a-col :span="8">
+              <a-col :span="16">
                 <a-form-item
+                  label-col-flex="60px"
                   field="taskcreatetime"
                   :label="$t('taskmanager.form.taskcreatetime')"
                 >
@@ -185,7 +190,7 @@
         @page-change="onPageChange"
       >
         <template #index="{ rowIndex }">
-          {{ rowIndex + 1 + (pagination.current - 1) * pagination.pageSize }}
+          {{ rowIndex + 1 + (pagination.page - 1) * pagination.pageSize }}
         </template>
         <template #status="{ record }">
           <span v-if="record.status === 'offline'" class="circle"></span>
@@ -238,7 +243,7 @@ const showColumns = ref<Column[]>([]);
 const size = ref<SizeProps>('medium');
 
 const basePagination: Pagination = {
-  current: 1,
+  page: 1,
   pageSize: 20,
 };
 const pagination = reactive({
@@ -334,7 +339,7 @@ const fetchData = async (params: PolicyParams = { current: 1, pageSize: 20 }) =>
   try {
     const { data } = await queryPolicyList(params);
     renderData.value = data.list;
-    pagination.current = params.current;
+    pagination.page = params.current;
     pagination.total = data.total;
   } catch (err) {
     // you can report use errorHandler or other

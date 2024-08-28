@@ -2,7 +2,10 @@
   <a-spin :loading="loading" style="width: 100%">
     <a-card :bordered="false" :style="cardStyle">
       <div class="content-wrap">
-        <div class="content">
+
+        <a-row class="grid-demo">
+        <a-col :span="20">
+          <div class="content">
           <a-statistic
             :title="title"
             :value="renderData.count"
@@ -10,7 +13,10 @@
             :precision="computedPrecision"
             animation
             show-group-separator
-          ><template v-if="props.quota === 'percent'" #suffix>%</template></a-statistic>
+          >
+          
+          <template v-if="props.quota === 'percent'" #suffix>%</template></a-statistic>
+
           <div class="desc">
             <a-typography-text type="secondary" class="label">
               {{ $t('workplace.newFromYesterday') }}
@@ -21,11 +27,20 @@
             </a-typography-text>
           </div>
         </div>
+        </a-col>
+        <a-col :span="4">
+          
+      
         <div>
-          <a-avatar  class="col-avatar">
+          <a-avatar 
+           shape="square"
+           class="col-avatar">
           <img class="img" :src="imageSrc" />
           </a-avatar>
           </div>
+        </a-col>
+      </a-row>
+
       </div>
     </a-card>
   </a-spin>
@@ -157,7 +172,8 @@
   .col-avatar {
     float: right;
     size:8px;
-    background-color: var(--color-fill-2);
+    background-color: #fcfff9;
+
   }
   .label {
     padding-right: 8px;

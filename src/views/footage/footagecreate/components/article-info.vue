@@ -1,24 +1,23 @@
 <template>
 
   <a-form ref="formRef" :model="formData" class="form" :label-col-props="{ span: 6 }" :wrapper-col-props="{ span: 18 }">
-    <a-form-item class="form-item" field="image" :label="$t('footage.form.image')" :rules="[
-      {
+    <a-form-item class="form-item" field="file" :label="$t('footage.form.image')" :rules="[
+{
         required: true,
         message: $t('footage.form.error.title.required'),
       },
     ]" row-class="keep-margin">
-         <a-upload
-      action="/"
+      <a-upload 
+      @change="onChange" 
       :auto-upload="false"
-      ref="uploadRef"
-      multiple
-    >
-      <template #upload-button>
-        <a-space>
-          <a-button> select file</a-button>
-        </a-space>
-      </template>
-    </a-upload>
+
+      >
+        <template #upload-button>
+          <a-space>
+            <a-button> select file</a-button>
+          </a-space>
+        </template>
+      </a-upload>
     </a-form-item>
     <a-form-item class="form-item" field="title" :label="$t('footage.form.title')" :rules="[
       {
@@ -60,25 +59,18 @@ import { FormInstance } from '@arco-design/web-vue/es/form';
 import { ArticleInfoModel } from '@/api/footage/createNewFootage';
 import { defineEmits } from 'vue';
 import { shallowRef, ref, onBeforeUnmount } from 'vue';
-import '@wangeditor/editor/dist/css/style.css' // 引入 css
+import '@wangeditor/editor/dist/css/style.css'
 import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
 
 
 const editorRef = shallowRef()
 
 
-const valueHtml = ref('')
 const toolbarConfig = {
   excludeKeys: ['fullScreen'],
 }
 
 const editorConfig = { placeholder: '请输入内容...' }
-const handleChange = (editor: any) => {
-  console.log('change:', editor.getHtml());
-};
-
-
-
 onBeforeUnmount(() => {
   const editor = editorRef.value
   if (editor == null) return
@@ -88,21 +80,24 @@ const handleCreated = (editor: any) => {
   editorRef.value = editor // 记录 editor 实例，重要！
 }
 
-
-
 const emits = defineEmits(['changeStep']);
-
 const formRef = ref<FormInstance>();
 const formData = ref<ArticleInfoModel>({
   title: '',
   content: '',
-  image: undefined,
+  file: undefined,
 });
+const onChange = (info: any) => {
+
+  const  [file]  = info;
+  console.log('Upload event:', file.file);
+    formData.value.file = file.file; // 获取原始文件对象
+
+};
 
 const onNextClick = async () => {
   try {
     const res = await formRef.value?.validate();
-    console.log('res', res);
     if (!res) {
       emits('changeStep', 'submit', { ...formData.value });
     }

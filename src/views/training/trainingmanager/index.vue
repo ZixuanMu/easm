@@ -13,6 +13,7 @@
             <a-row :gutter="16">
               <a-col :span="8">
                 <a-form-item
+                  label-col-flex="60px"
                   field="number"
                   :label="$t('trainingTableform.number')"
                 >
@@ -23,7 +24,8 @@
                 </a-form-item>
               </a-col>
               <a-col :span="8">
-                <a-form-item field="name" :label="$t('trainingTableform.name')">
+                <a-form-item
+                  label-col-flex="60px" field="name" :label="$t('trainingTableform.name')">
                   <a-input
                     v-model="formModel.name"
                     :placeholder="$t('trainingTableform.name.placeholder')"
@@ -32,30 +34,20 @@
               </a-col>
               <a-col :span="8">
                 <a-form-item
-                  field="contentType"
-                  :label="$t('trainingTableform.contentType')"
+                  label-col-flex="60px"
+                  field="userGroup"
+                  :label="$t('trainingTableform.userGroup')"
                 >
                   <a-select
-                    v-model="formModel.contentType"
-                    :options="contentTypeOptions"
+                    v-model="formModel.userGroup"
+                    :options="userGroupOptions"
                     :placeholder="$t('trainingTableform.selectDefault')"
                   />
                 </a-form-item>
               </a-col>
               <a-col :span="8">
                 <a-form-item
-                  field="filterType"
-                  :label="$t('trainingTableform.filterType')"
-                >
-                  <a-select
-                    v-model="formModel.filterType"
-                    :options="filterTypeOptions"
-                    :placeholder="$t('trainingTableform.selectDefault')"
-                  />
-                </a-form-item>
-              </a-col>
-              <a-col :span="8">
-                <a-form-item
+                  label-col-flex="60px"
                   field="createdTime"
                   :label="$t('trainingTableform.createdTime')"
                 >
@@ -67,6 +59,7 @@
               </a-col>
               <a-col :span="8">
                 <a-form-item
+                  label-col-flex="60px"
                   field="status"
                   :label="$t('trainingTableform.status')"
                 >
@@ -74,6 +67,18 @@
                     v-model="formModel.status"
                     :options="statusOptions"
                     :placeholder="$t('trainingTableform.selectDefault')"
+                  />
+                </a-form-item>
+              </a-col>
+              <a-col :span="8">
+                <a-form-item
+                  label-col-flex="60px"
+                  field="completionRate"
+                  :label="$t('trainingTableform.completionRate')"
+                >
+                  <a-input
+                    v-model="formModel.completionRate"
+                    :placeholder="$t('trainingTableform.completionRate.placeholder')"
                   />
                 </a-form-item>
               </a-col>
@@ -196,44 +201,16 @@
         <template #index="{ rowIndex }">
           {{ rowIndex + 1 + (pagination.page - 1) * pagination.pageSize }}
         </template>
-        <template #contentType="{ record }">
-          <a-space>
-            <a-avatar
-              v-if="record.contentType === 'img'"
-              :size="16"
-              shape="square"
-            >
-              <img
-                alt="avatar"
-                src="//p3-armor.byteimg.com/tos-cn-i-49unhts6dw/581b17753093199839f2e327e726b157.svg~tplv-49unhts6dw-image.image"
-              />
-            </a-avatar>
-            <a-avatar
-              v-else-if="record.contentType === 'horizontalVideo'"
-              :size="16"
-              shape="square"
-            >
-              <img
-                alt="avatar"
-                src="//p3-armor.byteimg.com/tos-cn-i-49unhts6dw/77721e365eb2ab786c889682cbc721c1.svg~tplv-49unhts6dw-image.image"
-              />
-            </a-avatar>
-            <a-avatar v-else :size="16" shape="square">
-              <img
-                alt="avatar"
-                src="//p3-armor.byteimg.com/tos-cn-i-49unhts6dw/ea8b09190046da0ea7e070d83c5d1731.svg~tplv-49unhts6dw-image.image"
-              />
-            </a-avatar>
-            {{ $t(`trainingTableform.contentType.${record.contentType}`) }}
-          </a-space>
-        </template>
-        <template #filterType="{ record }">
-          {{ $t(`trainingTableform.filterType.${record.filterType}`) }}
+        <template #userGroup="{ record }">
+          {{ $t(`trainingTableform.userGroup.${record.userGroup}`) }}
         </template>
         <template #status="{ record }">
           <span v-if="record.status === 'offline'" class="circle"></span>
           <span v-else class="circle pass"></span>
           {{ $t(`trainingTableform.status.${record.status}`) }}
+        </template>
+        <template #completionRate="{ record }">
+          {{ record.completionRate }}%
         </template>
         <template #operations>
           <a-button v-permission="['admin']" type="text" size="small">
@@ -263,10 +240,10 @@
     return {
       number: '',
       name: '',
-      contentType: '',
-      filterType: '',
+      userGroup: '',
       createdTime: [],
       status: '',
+      completionRate: '',
     };
   };
   const { loading, setLoading } = useLoading(true);
@@ -318,17 +295,9 @@
       dataIndex: 'name',
     },
     {
-      title: t('trainingTablecolumns.contentType'),
-      dataIndex: 'contentType',
-      slotName: 'contentType',
-    },
-    {
-      title: t('trainingTablecolumns.filterType'),
-      dataIndex: 'filterType',
-    },
-    {
-      title: t('trainingTablecolumns.count'),
-      dataIndex: 'count',
+      title: t('trainingTablecolumns.userGroup'),
+      dataIndex: 'userGroup',
+      slotName: 'userGroup',
     },
     {
       title: t('trainingTablecolumns.createdTime'),
@@ -340,33 +309,28 @@
       slotName: 'status',
     },
     {
+      title: t('trainingTablecolumns.completionRate'),
+      dataIndex: 'completionRate',
+      slotName: 'completionRate',
+    },
+    {
       title: t('trainingTablecolumns.operations'),
       dataIndex: 'operations',
       slotName: 'operations',
     },
   ]);
-  const contentTypeOptions = computed<SelectOptionData[]>(() => [
+  const userGroupOptions = computed<SelectOptionData[]>(() => [
     {
-      label: t('trainingTableform.contentType.img'),
-      value: 'img',
+      label: t('trainingTableform.userGroup.groupA'),
+      value: 'groupA',
     },
     {
-      label: t('trainingTableform.contentType.horizontalVideo'),
-      value: 'horizontalVideo',
+      label: t('trainingTableform.userGroup.groupB'),
+      value: 'groupB',
     },
     {
-      label: t('trainingTableform.contentType.verticalVideo'),
-      value: 'verticalVideo',
-    },
-  ]);
-  const filterTypeOptions = computed<SelectOptionData[]>(() => [
-    {
-      label: t('trainingTableform.filterType.artificial'),
-      value: 'artificial',
-    },
-    {
-      label: t('trainingTableform.filterType.rules'),
-      value: 'rules',
+      label: t('trainingTableform.userGroup.groupC'),
+      value: 'groupC',
     },
   ]);
   const statusOptions = computed<SelectOptionData[]>(() => [
@@ -509,6 +473,7 @@
     .title {
       margin-left: 12px;
       cursor: pointer;
+
     }
   }
 </style>

@@ -23,15 +23,25 @@ const TRAINING: AppRouteRecordRaw = {
       },
     },
     {
-      path: 'multi-dimension-data-analysis',
-      name: 'MultiDimensionDataAnalysis',
-      component: () =>
-        import('@/views/phishing/index.vue'),
+      path: 'industrystandards',
+      name: 'industrystandards',
+      component: () => import('@/views/training/industrystandards/index.vue'),
       meta: {
-        locale: 'menu.visualization.multiDimensionDataAnalysis',
+        locale: 'menu.training.industrystandards',
         requiresAuth: true,
         roles: ['admin'],
-      },
+      }
+    },
+    {
+      path: 'trainingnotify',
+      name: 'trainingnotify',
+      component: () => import('@/views/training/trainingnotify/index.vue'),
+      meta:{
+        locale: 'menu.training.trainingnotify',
+        requiresAuth: true,
+        roles: ['admin'],
+        
+      }
     },
   ],
 };

@@ -13,25 +13,32 @@ const PHISHING: AppRouteRecordRaw = {
   },
   children: [
     {
-      path: 'success',
-      name: 'Success',
-      component: () => import('@/views/not-found/index.vue'),
+      path:'/phishing/emailsetting',
+      name: 'emailsetting',
+      component: () => import('@/views/phishing/emailsetting/index.vue'),
       meta: {
-        locale: 'menu.result.success',
+        locale: 'menu.phishing.emailsetting',
         requiresAuth: true,
-        roles: ['admin'],
       },
     },
     {
-      path: 'error',
-      name: 'Error',
-      component: () => import('@/views/risk/index.vue'),
+      path:'/phishing/phishingactive',
+      name: 'phishingactive',
+      component: () => import('@/views/phishing/phishingactive/index.vue'),
       meta: {
-        locale: 'menu.result.error',
+        locale: 'menu.phishing.phishingactive',
         requiresAuth: true,
-        roles: ['admin'],
       },
-    },
+    },{
+      path:'/phishing/socialengineering',
+      name:'socialengineering',
+      component: () => import('@/views/phishing/socialengineering/index.vue'),
+      meta: {
+        locale: 'menu.phishing.socialengineering',
+        requiresAuth: true,
+      }
+    }
+    
   ],
 };
 

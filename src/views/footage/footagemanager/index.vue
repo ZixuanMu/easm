@@ -49,8 +49,9 @@
                   </a-card>
                 </div>
                 <div v-for="item in renderData" :key="item.id" class="grid-item card-wrap">
-                  <CardWrap imageSrc="https://training.knowbe4.com/modstore/artwork/5p5g8aw91gaetqretjfe6r5p9k5a"
-                    :title="item.name" :action-type="item.type" :open-txt="$t('footageList.content.inspection')"
+                  <CardWrap 
+                    :imageSrc="item.img"
+                    :title="item.name" :type="item.type" :open-txt="$t('footageList.content.inspection')"
                     :close-txt="$t('footageList.content.delete')" :show-tag="false">
                     <a-descriptions style="margin-top: 16px" layout="inline-horizontal" :column="2" />
                     <template #skeleton>

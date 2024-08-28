@@ -11,6 +11,7 @@ export interface FootageRecord {
   labels: label[];  
   name:string;
   subId:number;
+  img:string;
   type:number;
 }
 
@@ -34,4 +35,7 @@ export function FootagePolicyList(params: FootageParams) {
     params,
     paramsSerializer: qs.stringify,  // 直接传递qs.stringify函数
   });
+}
+export function deletefootageForm(fid: number) {
+  return axios.delete('/api/admin/footage', { data: { fid} });
 }

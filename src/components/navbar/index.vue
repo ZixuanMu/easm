@@ -8,7 +8,7 @@
           style="height: 30px; width: 30px"
         />
         <a-typography-title
-          :style="{ margin: 0, fontSize: '18px' }"
+          :style="{ margin: 0, fontSize: '18px' ,minWidth: '80px' }"
           :heading="5"
         >
           {{ $t('settings.navbar.title') }}

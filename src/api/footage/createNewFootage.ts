@@ -8,22 +8,22 @@ export interface BaseInfoModel {
 export interface ArticleInfoModel {
   content: string;
   title: string;
-  image?: File; // 假设image是一个文件对象
+  file?: File; // 这是缩略图，后端给的接口就叫这个名字
 }
 
 export type UnitfootageModel = BaseInfoModel & ArticleInfoModel;
 
 export function submitfootageForm(data: UnitfootageModel) {
-  const params = new URLSearchParams();
-  params.append('content', data.content);
-  params.append('title', data.title);
-  data.labels.forEach(label => params.append('labels', label.toString()));
-
-  // 假设image需要通过表单数据上传
   const formData = new FormData();
-  if (data.image) {
-    formData.append('image', data.image);
-  }
+  formData.append('content', data.content);
+  formData.append('title', data.title);
+  data.labels.forEach(label => formData.append('labels', label.toString()));
 
-  return axios.post(`/api/admin/article?${params.toString()}`, formData);
+  formData.append('file', data.file as any);
+  
+  return axios.post('/api/admin/article', formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  });
 }

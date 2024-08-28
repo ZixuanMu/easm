@@ -33,6 +33,17 @@ const FOOTAGE: AppRouteRecordRaw = {
       },
     },
     {
+      path: '/footage/remotefootage',
+      
+      name: 'Remotefootage',
+      component: () => import('@/views/footage/remotefootage/index.vue'),
+      meta: {
+        locale: 'menu.footageList.remotefootage',
+        requiresAuth: true,
+        roles: ['admin'],
+      }
+    },
+    {
       path: '/footage/footagecreate',
       name: 'Footagercreate',
       component: () => import('@/views/footage/footagecreate/index.vue'),
